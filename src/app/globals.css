@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================= */
+/* COLOR VARIABLES */
+/* ============================= */
+
+:root {
+  --fanta: #f58fa3;
+  --pink: #f7c5cf;
+  --cream: #fff7ec;
+  --brown: #6b4a43;
+  --deep-brown: #3a2926;
+  --white: #fffdf9;
+}
+
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--deep-brown);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* ============================= */
+/* TEXT SELECTION */
+/* ============================= */
+
+::selection {
+  background: var(--deep-brown);
+  color: var(--cream);
+}
+
+/* ============================= */
+/* DISPLAY FONT */
+/* ============================= */
+
+.display {
+  font-family: var(--font-display), serif;
+}
+
+/* ============================= */
+/* NOISE */
+/* ============================= */
+
+.noise {
+  position: relative;
+}
+
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  z-index: 50;
+  background-image: url("/images/decorations/grain.png");
+  mix-blend-mode: multiply;
+}
+
+/* ============================= */
+/* LINKS */
+/* ============================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================= */
+/* TAP HIGHLIGHT */
+/* ============================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

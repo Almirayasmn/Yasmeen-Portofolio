@@ -1,366 +1,216 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Users, Layout, Code2, ShieldCheck, ArrowUpRight } from "lucide-react";
 
 const capabilities = [
   {
     number: "01",
-    title: "Developer Relations",
+    title: "Developer Relations & Ecosystems",
+    short: "DevRel & Community",
+    icon: Users,
     description:
-      "Building connections between developers, communities, universities, and technology ecosystems.",
-    tags: ["Community", "Outreach", "Events", "Web3"],
+      "Cultivating developer communities, organizing university outreach roadshows, moderating technical channels (Discord & Telegram), and supporting hackathon participants with empathy and technical guidance.",
+    tags: ["DevRel", "Community Moderation", "Hackathons", "Tech Outreach", "Web3 Onboarding"],
+    deliverables: [
+      "Developer community onboarding & retention strategy",
+      "Technical event moderation & hackathon support",
+      "University partnerships & student developer programs",
+      "Clear developer documentation & communication channels",
+    ],
   },
   {
     number: "02",
-    title: "UI / UX Design",
+    title: "UI / UX Design & Prototyping",
+    short: "Design & UX Research",
+    icon: Layout,
     description:
-      "Turning ideas into intuitive digital experiences through research, wireframes, interfaces, and visual systems.",
-    tags: ["Figma", "Wireframe", "Prototype", "Design"],
+      "Crafting human-centered, accessible user interfaces and robust design systems in Figma. From initial wireframing and user research to high-fidelity clickable prototypes ready for developer handoff.",
+    tags: ["Figma", "Design Systems", "Wireframing", "User Research", "Responsive UI"],
+    deliverables: [
+      "Complete Figma design systems & reusable component libraries",
+      "High-fidelity interactive prototypes for stakeholder review",
+      "User flows, information architecture & wireframing",
+      "Developer-ready design specs & asset handoffs",
+    ],
   },
   {
     number: "03",
-    title: "Project Operations",
+    title: "Modern Web & Frontend Engineering",
+    short: "Web Development",
+    icon: Code2,
     description:
-      "Coordinating people, information, documentation, and progress to keep projects moving in the right direction.",
-    tags: ["Monitoring", "Reporting", "Coordination", "Analysis"],
+      "Building clean, performant, and responsive web applications using Next.js, React, TypeScript, and modern CSS. Writing maintainable code with focus on speed, accessibility, and user experience.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+    deliverables: [
+      "Production-ready responsive web apps in Next.js & React",
+      "Type-safe component architectures in TypeScript",
+      "Clean REST API integrations & database models",
+      "SEO optimization, web accessibility & performance tuning",
+    ],
   },
   {
     number: "04",
-    title: "Digital Products",
+    title: "Technical Operations & Data Verification",
+    short: "Operations & Quality",
+    icon: ShieldCheck,
     description:
-      "Designing and developing digital products using modern technologies with a focus on usability and experience.",
-    tags: ["React", "Next.js", "TypeScript", "Laravel"],
+      "Bringing structured operational monitoring, data integrity audits, and clear asynchronous reporting to complex institutional and distributed programs to keep teams aligned and on schedule.",
+    tags: ["Data Verification", "Program Monitoring", "Async Reporting", "Quality Control"],
+    deliverables: [
+      "Data auditing, validation & inconsistency escalation",
+      "Structured progress tracking & performance metrics",
+      "Cross-departmental stakeholder synchronization",
+      "Audit-ready documentation and progress reporting",
+    ],
   },
 ];
-
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
 
 export default function WhatIDo() {
   return (
     <section
       id="what-i-do"
-      className="relative overflow-hidden bg-pink text-deep-brown"
+      className="relative overflow-hidden bg-pink text-deep-brown py-28 md:py-40"
     >
-      {/* ================= BACKGROUND ================= */}
+      {/* BACKGROUND DECORATION */}
+      <div className="pointer-events-none absolute inset-0">
+        <motion.div
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -right-40 top-20 h-[500px] w-[500px] rounded-full bg-cream/60 blur-[100px]"
+        />
 
-      <motion.div
-        animate={{
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none absolute -right-40 top-20 h-[500px] w-[500px] rounded-full bg-cream/60 blur-[100px]"
-      />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.25, 0.4, 0.25],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-fanta/30 blur-[100px]"
+        />
 
-      <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.2, 0.35, 0.2],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-fanta/30 blur-[100px]"
-      />
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(58,41,38,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(58,41,38,0.5) 1px, transparent 1px)",
+            backgroundSize: "75px 75px",
+          }}
+        />
+      </div>
 
-      {/* grid */}
-
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(58,41,38,0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(58,41,38,0.5) 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      {/* ================= CONTENT ================= */}
-
-      <div className="relative z-10 mx-auto max-w-[1500px] px-6 py-28 md:px-10 md:py-40">
-
-        {/* HEADER */}
-
-        <div className="mb-20 flex items-center justify-between">
-
+      <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
+        
+        {/* SECTION HEADER */}
+        <div className="mb-16 flex items-center justify-between border-b border-deep-brown/15 pb-6">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="flex items-center gap-3 text-[9px] uppercase tracking-[0.2em]"
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em]"
           >
-            <span className="h-2 w-2 rounded-full bg-deep-brown" />
-            <span>What I Do</span>
+            <span className="h-2.5 w-2.5 rounded-full bg-deep-brown" />
+            <span>03 / Capabilities & Offerings</span>
           </motion.div>
 
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="text-[9px] uppercase tracking-[0.2em] text-deep-brown/40"
-          >
-            03 / 07
-          </motion.span>
-
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-deep-brown/40">
+            What I Deliver
+          </span>
         </div>
 
-        {/* LINE */}
-
-        <div className="mb-20 h-px w-full overflow-hidden bg-deep-brown/10">
-          <motion.div
-            initial={{ x: "-100%" }}
-            whileInView={{ x: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="h-full w-full bg-deep-brown/30"
-          />
-        </div>
-
-        {/* ================= TITLE ================= */}
-
-        <div className="grid gap-12 md:grid-cols-[1fr_350px] md:items-end">
-
+        {/* TITLE */}
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-20">
           <motion.h2
-            initial={{ opacity: 0, y: 70 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="
-              display
-              max-w-5xl
-              text-6xl
-              leading-[0.82]
-              tracking-[-0.05em]
-              md:text-8xl
-              lg:text-[9rem]
-            "
-          >
-            Things I
-            <br />
-            <span className="text-cream">love to do.</span>
-          </motion.h2>
-
-          <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              delay: 0.25,
-            }}
-            className="max-w-sm text-sm leading-[1.8] text-deep-brown/70 md:text-base"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="display text-5xl sm:text-7xl lg:text-8xl leading-[0.85] tracking-[-0.04em]"
           >
-            A mix of technology, design, coordination, and communication —
-            the things I naturally gravitate toward when working on a
-            project.
-          </motion.p>
+            Capabilities tailored for{" "}
+            <span className="text-cream italic underline decoration-fanta decoration-4 underline-offset-4">
+              modern teams.
+            </span>
+          </motion.h2>
 
-        </div>
-
-        {/* ================= CAPABILITIES ================= */}
-
-        <div className="mt-28">
-
-          {capabilities.map((item, index) => (
-            <motion.div
-              key={item.number}
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                margin: "-80px",
-              }}
-              transition={{
-                delay: index * 0.12,
-              }}
-              className="group relative border-t border-deep-brown/20"
-            >
-
-              {/* hover background */}
-
-              <motion.div
-                initial={{ scaleY: 0 }}
-                whileHover={{ scaleY: 1 }}
-                transition={{
-                  duration: 0.45,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="pointer-events-none absolute inset-0 origin-bottom bg-cream/60"
-              />
-
-              {/* CONTENT */}
-
-              <div className="relative grid gap-8 py-10 md:grid-cols-[80px_1fr_1fr_80px] md:items-center md:gap-10">
-
-                {/* NUMBER */}
-
-                <span className="text-[9px] uppercase tracking-[0.2em] text-deep-brown/40">
-                  {item.number}
-                </span>
-
-                {/* TITLE */}
-
-                <motion.h3
-                  whileHover={{
-                    x: 10,
-                    transition: {
-                      duration: 0.3,
-                    },
-                  }}
-                  className="
-                    display
-                    text-4xl
-                    leading-none
-                    tracking-[-0.03em]
-                    md:text-5xl
-                    lg:text-6xl
-                  "
-                >
-                  {item.title}
-                </motion.h3>
-
-                {/* DESCRIPTION */}
-
-                <p className="
-                  max-w-md
-                  text-sm
-                  leading-[1.8]
-                  text-deep-brown/65
-                  md:text-base
-                ">
-                  {item.description}
-                </p>
-
-                {/* ARROW */}
-
-                <motion.div
-                  initial={{
-                    rotate: 0,
-                    scale: 0.8,
-                  }}
-                  whileHover={{
-                    rotate: 45,
-                    scale: 1,
-                  }}
-                  className="
-                    hidden
-                    h-12
-                    w-12
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-deep-brown/30
-                    text-lg
-                    md:flex
-                  "
-                >
-                  ↗
-                </motion.div>
-
-              </div>
-
-              {/* TAGS */}
-
-              <div className="relative flex flex-wrap gap-2 pb-8 md:ml-[80px]">
-
-                {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="
-                      rounded-full
-                      border
-                      border-deep-brown/20
-                      px-3
-                      py-1.5
-                      text-[8px]
-                      uppercase
-                      tracking-[0.14em]
-                      text-deep-brown/60
-                      transition-all
-                      duration-300
-                      group-hover:border-deep-brown/40
-                      group-hover:text-deep-brown
-                    "
-                  >
-                    {tag}
-                  </span>
-                ))}
-
-              </div>
-
-            </motion.div>
-          ))}
-
-          {/* final line */}
-
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="h-px origin-left bg-deep-brown/20"
-          />
-
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-sm sm:text-base leading-relaxed text-deep-brown/80"
+          >
+            A high-leverage blend of developer relations, product design, engineering, and operational rigor — delivering value from day one.
+          </motion.p>
         </div>
 
-        {/* ================= BOTTOM ================= */}
+        {/* CAPABILITIES EXPANDED CARDS */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {capabilities.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.article
+                key={item.number}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: index * 0.12 }}
+                whileHover={{ y: -5 }}
+                className="group relative rounded-3xl bg-cream/70 backdrop-blur-md border border-deep-brown/15 p-8 shadow-[0_10px_30px_rgba(58,41,38,0.05)] flex flex-col justify-between transition-all duration-300 hover:bg-cream hover:shadow-xl hover:border-fanta"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="font-mono text-xs font-bold text-deep-brown bg-fanta/30 px-3 py-1 rounded-full">
+                      {item.number}
+                    </span>
+                    <div className="p-3 rounded-2xl bg-white/80 border border-deep-brown/10 text-deep-brown group-hover:bg-deep-brown group-hover:text-cream transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.8,
-            delay: 0.4,
-          }}
-          className="
-            mt-16
-            flex
-            items-center
-            justify-between
-            text-[8px]
-            uppercase
-            tracking-[0.18em]
-            text-deep-brown/50
-          "
-        >
-          <span>Capabilities · Skills · Interests</span>
+                  <h3 className="display text-3xl sm:text-4xl text-deep-brown leading-tight">
+                    {item.title}
+                  </h3>
 
-          <span>Scroll ↓</span>
-        </motion.div>
+                  <p className="mt-4 text-xs sm:text-sm text-deep-brown/75 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  {/* DELIVERABLES */}
+                  <div className="mt-6 pt-5 border-t border-deep-brown/10">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-deep-brown/50 mb-3">
+                      Tangible Deliverables
+                    </p>
+                    <ul className="space-y-2">
+                      {item.deliverables.map((deliv) => (
+                        <li key={deliv} className="flex items-start gap-2 text-xs text-deep-brown/85">
+                          <span className="h-1.5 w-1.5 rounded-full bg-fanta mt-1.5 shrink-0" />
+                          <span>{deliv}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* TAGS */}
+                <div className="mt-8 pt-6 border-t border-deep-brown/10 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-white/80 border border-deep-brown/10 px-3 py-1 text-[10px] font-semibold text-deep-brown/80"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
 
       </div>
     </section>

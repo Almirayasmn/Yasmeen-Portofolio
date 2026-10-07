@@ -1,22 +1,21 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Manrope } from "next/font/google";
 import "./globals.css";
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Yasmeen Almira — Developer Relations & UI/UX Designer",
+  title: "Yasmeen Almira — Developer Relations & UI/UX Designer | Remote Ready",
   description:
-    "Portfolio of Yasmeen Almira — Developer Relations, UI/UX, project operations, and technology.",
+    "Portfolio of Yasmeen Almira — Developer Relations, UI/UX Design, Project Operations, and Fullstack Web Development. Open to global remote opportunities.",
+  keywords: [
+    "Yasmeen Almira",
+    "Developer Relations",
+    "DevRel",
+    "UI/UX Designer",
+    "Remote Frontend Developer",
+    "Project Operations",
+    "Web3 Community",
+    "Next.js Portfolio",
+  ],
+  authors: [{ name: "Yasmeen Almira" }],
 };
 
 export default function RootLayout({
@@ -25,8 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${dmSerif.variable} ${manrope.variable}`}>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body
+        className="antialiased selection:bg-deep-brown selection:text-cream bg-cream text-deep-brown relative"
+        suppressHydrationWarning
+      >
+        <div className="noise-overlay" aria-hidden="true" />
         {children}
       </body>
     </html>

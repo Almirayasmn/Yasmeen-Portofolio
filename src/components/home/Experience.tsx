@@ -1,55 +1,59 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Briefcase, Calendar, Building, CheckCircle, Sparkles, ArrowUpRight } from "lucide-react";
 
 const experiences = [
   {
-    year: "2026 — Present",
-    company: "Ministry of Primary and Secondary Education",
-    shortCompany: "Kemendikdasmen",
-    role: "Monitoring Staff",
-    type: "Project Operations",
+    year: "Jul — Sep",
+    period: "July — September (Contract)",
+    company: "Ministry of Primary and Secondary Education (Kemendikdasmen)",
+    role: "Monitoring Staff — School Revitalization Program",
+    type: "Project Operations & Program Monitoring",
+    location: "Jakarta, Indonesia (Hybrid)",
     description:
-      "Monitor facilitator performance and progress across the School Revitalization Program. Analyze daily reports, documentation progress, communication activities, and school-level data to identify inconsistencies and performance gaps.",
+      "Monitored facilitator performance, reporting workflows, and school infrastructure revitalization progress on a national scale. Synthesized field reports, validated data consistency, and proactively escalated operational bottlenecks.",
     points: [
-      "Monitor facilitator performance and school progress",
-      "Analyze daily reports and operational data",
-      "Identify anomalies and incomplete submissions",
-      "Prepare monitoring analysis and escalation reports",
-      "Coordinate follow-up with relevant team members",
+      "Tracked and evaluated facilitator milestones across nationwide school sites.",
+      "Analyzed daily operational submissions and identified inconsistencies or reporting delays.",
+      "Prepared synthesized monitoring analysis and actionable escalation briefings for leadership.",
+      "Coordinated cross-functional follow-ups with field teams and regional stakeholders.",
     ],
+    skills: ["Program Monitoring", "Operational Analysis", "Reporting Pipelines", "Stakeholder Alignment"],
   },
   {
-    year: "2025 — 2026",
-    company: "Ministry of Primary and Secondary Education",
-    shortCompany: "Kemendikdasmen",
-    role: "Data Verificator",
-    type: "Data & Administration",
+    year: "2024 — 2025",
+    period: "Contract",
+    company: "Ministry of Primary and Secondary Education (Kemendikdasmen)",
+    role: "Data Verificator — Digitalization of Elementary Schools",
+    type: "Data Governance & Quality Assurance",
+    location: "Jakarta, Indonesia",
     description:
-      "Verified and reviewed school-level data for the Digitalization of Elementary Schools Program, ensuring accuracy, completeness, and consistency with established program requirements.",
+      "Conducted rigorous data auditing and verification for the national Elementary School Digitalization initiative, ensuring school recipient data was 100% compliant, accurate, and ready for equipment distribution.",
     points: [
-      "Conduct data validation and verification",
-      "Identify discrepancies and incomplete information",
-      "Coordinate corrections with relevant stakeholders",
-      "Maintain structured records and documentation",
-      "Support operational reporting and decision-making",
+      "Executed systematic data verification against strict institutional compliance guidelines.",
+      "Identified data anomalies, duplicate submissions, and incomplete records across school datasets.",
+      "Coordinated data correction protocols directly with regional operators and coordinators.",
+      "Maintained structured, audit-ready documentation to support operational decision-making.",
     ],
+    skills: ["Data Verification", "Quality Assurance", "Data Cleanliness", "Cross-Team Coordination"],
   },
   {
-    year: "2025",
+    year: "2024 — 2025",
+    period: "Remote Contract",
     company: "ICP Hub Indonesia",
-    shortCompany: "ICP Hub",
     role: "Developer Relations Assistant",
-    type: "Developer Relations",
+    type: "Developer Relations & Ecosystem Growth",
+    location: "Remote (Contract)",
     description:
-      "Supported developer-focused programs and Web3 initiatives through university outreach, community engagement, stakeholder communication, and event coordination.",
+      "Spearheaded developer engagement, university outreach, and community facilitation for Internet Computer Protocol (ICP) Web3 initiatives across Indonesian campuses and tech hubs.",
     points: [
-      "Conduct university and developer outreach",
-      "Manage communication with communities and stakeholders",
-      "Support Web3 hackathon initiatives",
-      "Manage Telegram and Discord communities",
-      "Assist event and participant coordination",
+      "Executed university outreach roadshows and campus developer onboarding sessions.",
+      "Actively managed, moderated, and grew developer communities on Telegram and Discord.",
+      "Assisted in coordinating Web3 hackathons, submission reviews, and participant support.",
+      "Bridged communication between core ecosystem partners, student founders, and developers.",
     ],
+    skills: ["Developer Relations", "Community Management", "Web3 Outreach", "Discord & Telegram", "Hackathons"],
   },
 ];
 
@@ -57,628 +61,178 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-deep-brown text-cream"
+      className="relative overflow-hidden bg-deep-brown text-cream py-28 md:py-40"
     >
-      {/* ===================================================== */}
-      {/* BACKGROUND */}
-      {/* ===================================================== */}
-
+      {/* BACKGROUND GLOWS */}
       <div className="pointer-events-none absolute inset-0">
-
-        {/* pink glow */}
-
         <motion.div
           animate={{
-            x: [0, 50, 0],
+            x: [0, 40, 0],
             y: [0, -30, 0],
             scale: [1, 1.1, 1],
           }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            -right-40
-            top-10
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-fanta/15
-            blur-[120px]
-          "
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -right-40 top-10 h-[550px] w-[550px] rounded-full bg-fanta/15 blur-[130px]"
         />
-
-        {/* second glow */}
 
         <motion.div
           animate={{
-            x: [0, -30, 0],
+            x: [0, -40, 0],
             y: [0, 30, 0],
           }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            -bottom-60
-            -left-40
-            h-[450px]
-            w-[450px]
-            rounded-full
-            bg-cream/5
-            blur-[120px]
-          "
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-cream/10 blur-[130px]"
         />
-
-        {/* grid */}
 
         <div
-          className="
-            absolute
-            inset-0
-            opacity-[0.04]
-          "
+          className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: `
-              linear-gradient(
-                rgba(255,247,236,0.4) 1px,
-                transparent 1px
-              ),
-              linear-gradient(
-                90deg,
-                rgba(255,247,236,0.4) 1px,
-                transparent 1px
-              )
-            `,
-            backgroundSize: "80px 80px",
+            backgroundImage:
+              "linear-gradient(rgba(255,247,236,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,247,236,0.4) 1px, transparent 1px)",
+            backgroundSize: "75px 75px",
           }}
         />
-
       </div>
 
-      {/* ===================================================== */}
-      {/* CONTENT */}
-      {/* ===================================================== */}
-
-      <div
-        className="
-          relative
-          z-10
-          mx-auto
-          max-w-[1500px]
-          px-6
-          py-32
-          md:px-10
-          md:py-44
-        "
-      >
-
-        {/* =================================================== */}
-        {/* HEADER */}
-        {/* =================================================== */}
-
-        <div className="mb-24 flex items-center justify-between">
-
+      <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
+        
+        {/* SECTION HEADER */}
+        <div className="mb-16 flex items-center justify-between border-b border-cream/15 pb-6">
           <motion.div
-            initial={{
-              opacity: 0,
-              x: -30,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            className="
-              flex
-              items-center
-              gap-3
-              text-[10px]
-              font-semibold
-              uppercase
-              tracking-[0.2em]
-            "
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em]"
           >
-            <span
-              className="
-                h-2
-                w-2
-                rounded-full
-                bg-fanta
-              "
-            />
-
-            <span>
-              Experience
-            </span>
+            <span className="h-2.5 w-2.5 rounded-full bg-fanta" />
+            <span>02 / Professional Experience</span>
           </motion.div>
 
-          <motion.span
-            initial={{
-              opacity: 0,
-            }}
-            whileInView={{
-              opacity: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            className="
-              text-[10px]
-              font-semibold
-              uppercase
-              tracking-[0.2em]
-              text-cream/45
-            "
-          >
-            03 / 07
-          </motion.span>
-
-        </div>
-
-        {/* =================================================== */}
-        {/* SECTION TITLE */}
-        {/* =================================================== */}
-
-        <div
-          className="
-            grid
-            gap-12
-            md:grid-cols-[1fr_420px]
-            md:items-end
-          "
-        >
-
-          <motion.h2
-            initial={{
-              opacity: 0,
-              y: 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="
-              display
-              max-w-6xl
-              text-7xl
-              leading-[0.78]
-              tracking-[-0.055em]
-              md:text-8xl
-              lg:text-[9rem]
-              xl:text-[10rem]
-            "
-          >
-            Where I&apos;ve
-            <br />
-
-            <span className="text-fanta">
-              been.
+          <div className="flex items-center gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span>Open to Work</span>
+            </div>
+            <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-[0.2em] text-cream/45">
+              Track Record & Impact
             </span>
-          </motion.h2>
-
-          <motion.p
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.2,
-            }}
-            className="
-              max-w-lg
-              text-base
-              leading-[1.8]
-              text-cream/65
-              md:text-lg
-              lg:text-xl
-            "
-          >
-            My experience sits across developer relations,
-            education programs, data verification, and project
-            operations.
-          </motion.p>
-
+          </div>
         </div>
 
-        {/* =================================================== */}
-        {/* TIMELINE */}
-        {/* =================================================== */}
-
-        <div className="relative mt-36">
-
-          {/* BASE LINE */}
-
-          <div
-            className="
-              absolute
-              left-[7px]
-              top-0
-              h-full
-              w-px
-              bg-cream/10
-              md:left-1/2
-              md:-translate-x-1/2
-            "
-          />
-
-          {/* ANIMATED LINE */}
-
-          <motion.div
-            initial={{
-              scaleY: 0,
-            }}
-            whileInView={{
-              scaleY: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 1.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            style={{
-              transformOrigin: "top",
-            }}
-            className="
-              absolute
-              left-[7px]
-              top-0
-              h-full
-              w-px
-              bg-fanta
-              md:left-1/2
-              md:-translate-x-1/2
-            "
-          />
-
-          {/* ================================================= */}
-          {/* EXPERIENCE ITEMS */}
-          {/* ================================================= */}
-
-          <div className="space-y-28 md:space-y-40">
-
-            {experiences.map((experience, index) => {
-
-              const isEven = index % 2 === 0;
-
-              return (
-                <motion.article
-                  key={`${experience.company}-${experience.role}`}
-                  initial={{
-                    opacity: 0,
-                    y: 70,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    margin: "-100px",
-                  }}
-                  transition={{
-                    duration: 0.9,
-                    delay: index * 0.15,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="
-                    relative
-                    grid
-                    md:grid-cols-2
-                    md:gap-24
-                  "
-                >
-
-                  {/* ================================================= */}
-                  {/* DOT */}
-                  {/* ================================================= */}
-
-                  <motion.div
-                    initial={{
-                      scale: 0,
-                    }}
-                    whileInView={{
-                      scale: 1,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      delay: index * 0.15 + 0.2,
-                    }}
-                    className="
-                      absolute
-                      left-0
-                      top-2
-                      z-10
-                      h-[17px]
-                      w-[17px]
-                      rounded-full
-                      border-[4px]
-                      border-deep-brown
-                      bg-fanta
-                      md:left-1/2
-                      md:-translate-x-1/2
-                    "
-                  />
-
-                  {/* ================================================= */}
-                  {/* CONTENT */}
-                  {/* ================================================= */}
-
-                  <div
-                    className={`
-                      pl-10
-                      md:pl-0
-                      ${
-                        isEven
-                          ? "md:pr-24 md:text-right"
-                          : "md:col-start-2 md:pl-24"
-                      }
-                    `}
-                  >
-
-                    {/* YEAR */}
-
-                    <motion.p
-                      initial={{
-                        opacity: 0,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      className="
-                        text-[10px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.22em]
-                        text-fanta
-                        md:text-xs
-                      "
-                    >
-                      {experience.year}
-                    </motion.p>
-
-                    {/* ROLE */}
-
-                    <motion.h3
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        duration: 0.7,
-                        delay: 0.1,
-                      }}
-                      className="
-                        display
-                        mt-5
-                        text-6xl
-                        leading-[0.82]
-                        tracking-[-0.045em]
-                        md:text-7xl
-                        lg:text-[6rem]
-                        xl:text-[6.5rem]
-                      "
-                    >
-                      {experience.role}
-                    </motion.h3>
-
-                    {/* COMPANY */}
-
-                    <p
-                      className="
-                        mt-5
-                        text-sm
-                        font-bold
-                        uppercase
-                        tracking-[0.14em]
-                        text-cream/70
-                        md:text-base
-                      "
-                    >
-                      {experience.shortCompany}
-                    </p>
-
-                    {/* TYPE */}
-
-                    <div
-                      className={`
-                        mt-6
-                        flex
-                        ${
-                          isEven
-                            ? "md:justify-end"
-                            : "md:justify-start"
-                        }
-                      `}
-                    >
-                      <span
-                        className="
-                          rounded-full
-                          border
-                          border-cream/25
-                          px-5
-                          py-2.5
-                          text-[9px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.16em]
-                          text-cream/65
-                        "
-                      >
-                        {experience.type}
-                      </span>
-                    </div>
-
-                    {/* DESCRIPTION */}
-
-                    <p
-                      className={`
-                        mt-8
-                        max-w-2xl
-                        text-base
-                        leading-[1.8]
-                        text-cream/70
-                        md:text-lg
-                        lg:text-xl
-                        ${
-                          isEven
-                            ? "md:ml-auto"
-                            : ""
-                        }
-                      `}
-                    >
-                      {experience.description}
-                    </p>
-
-                    {/* POINTS */}
-
-                    <ul
-                      className={`
-                        mt-8
-                        space-y-3
-                        ${
-                          isEven
-                            ? "md:ml-auto"
-                            : ""
-                        }
-                      `}
-                    >
-                      {experience.points.map((point) => (
-                        <li
-                          key={point}
-                          className={`
-                            flex
-                            items-start
-                            gap-4
-                            text-sm
-                            leading-[1.7]
-                            text-cream/55
-                            md:text-base
-                            ${
-                              isEven
-                                ? "md:flex-row-reverse"
-                                : ""
-                            }
-                          `}
-                        >
-
-                          <span
-                            className="
-                              mt-[9px]
-                              h-1.5
-                              w-1.5
-                              shrink-0
-                              rounded-full
-                              bg-fanta
-                            "
-                          />
-
-                          <span>
-                            {point}
-                          </span>
-
-                        </li>
-                      ))}
-                    </ul>
-
-                  </div>
-
-                </motion.article>
-              );
-            })}
-
+        {/* SECTION TITLE */}
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-24">
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="display text-5xl sm:text-7xl lg:text-8xl leading-[0.85] tracking-[-0.04em]"
+            >
+              Where I&apos;ve made an{" "}
+              <span className="text-fanta italic">impact.</span>
+            </motion.h2>
           </div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-sm sm:text-base leading-relaxed text-cream/70"
+          >
+            Proven track record working with government education programs, high-growth Web3 developer hubs, and cross-functional teams with high accountability and remote discipline.
+          </motion.p>
         </div>
 
-        {/* =================================================== */}
-        {/* BOTTOM */}
-        {/* =================================================== */}
+        {/* EXPERIENCE TIMELINE CARDS */}
+        <div className="space-y-12 lg:space-y-16">
+          {experiences.map((exp, index) => (
+            <motion.article
+              key={exp.role}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              className="relative rounded-3xl bg-cream/5 border border-cream/15 p-6 sm:p-10 backdrop-blur-md transition-all duration-300 hover:border-fanta/50 hover:bg-cream/[0.08]"
+            >
+              {/* TOP ROW: DATES, ROLE TYPE & COMPANY */}
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-cream/10 pb-6 mb-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="flex items-center gap-1.5 text-xs font-mono font-bold text-fanta bg-fanta/20 px-3.5 py-1.5 rounded-full">
+                    <Calendar className="h-3.5 w-3.5" />
+                    {exp.year}
+                  </span>
+                  <span className="text-[11px] font-semibold text-cream/60">
+                    ({exp.period})
+                  </span>
+                </div>
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.3,
-          }}
-          className="
-            mt-32
-            flex
-            flex-col
-            gap-4
-            border-t
-            border-cream/10
-            pt-6
-            text-[9px]
-            font-semibold
-            uppercase
-            tracking-[0.18em]
-            text-cream/40
-            md:flex-row
-            md:items-center
-            md:justify-between
-          "
-        >
-          <span>
-            Professional Experience
-          </span>
+                <span className="rounded-full border border-cream/20 px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-cream/70">
+                  {exp.type}
+                </span>
+              </div>
 
-          <span>
-            2025 — Present
-          </span>
-        </motion.div>
+              {/* ROLE TITLE & COMPANY */}
+              <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
+                <div>
+                  <h3 className="display text-3xl sm:text-4xl text-cream leading-tight">
+                    {exp.role}
+                  </h3>
+                  <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-fanta">
+                    {exp.company}
+                  </p>
+
+                  <p className="mt-5 text-sm sm:text-base leading-relaxed text-cream/80">
+                    {exp.description}
+                  </p>
+
+                  {/* BULLET POINTS */}
+                  <div className="mt-6 space-y-3">
+                    {exp.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3 text-xs sm:text-sm text-cream/75 leading-relaxed">
+                        <CheckCircle className="h-4 w-4 text-fanta mt-0.5 shrink-0" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* SKILLS & REMOTE TOOLING APPLIED */}
+                <div className="lg:border-l lg:border-cream/10 lg:pl-8 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cream/50 block mb-3">
+                      Skills & Tools Applied
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full bg-cream/10 border border-cream/15 px-3 py-1 text-[11px] font-medium text-cream/85"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-cream/10">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-cream/40 block">
+                      Work Environment
+                    </span>
+                    <p className="text-xs text-cream/75 mt-1">
+                      {exp.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
 
       </div>
     </section>

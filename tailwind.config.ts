@@ -19,8 +19,8 @@ const config: Config = {
       },
 
       fontFamily: {
-        sans: ["Arial", "Helvetica", "sans-serif"],
-        display: ["Georgia", "Times New Roman", "serif"],
+        sans: ["Manrope", "system-ui", "-apple-system", "sans-serif"],
+        display: ["\"DM Serif Display\"", "Georgia", "serif"],
       },
 
       letterSpacing: {

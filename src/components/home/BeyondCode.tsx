@@ -1,32 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Heart, Mic, Laptop, Users } from "lucide-react";
+import { Sparkles, Heart, Mic, Laptop, Users, Terminal, Cpu } from "lucide-react";
 
 const pillars = [
   {
     number: "01",
-    title: "Technology",
-    subtitle: "Curiosity & Systems",
+    sysCode: "CORE_TECH",
+    title: "Technology & Systems",
+    subtitle: "Curiosity · Modern Architecture",
     icon: Laptop,
-    text: "I enjoy understanding how digital systems operate, building functional products, and exploring modern frameworks that empower real users.",
-    tags: ["Next.js", "UI/UX", "System Architecture", "Web3"],
+    text: "Driven by continuous exploration of modern frameworks, intelligent data models, and scalable system architectures that solve concrete real-world challenges.",
+    tags: ["Next.js", "LSTM Neural Networks", "UI/UX Systems", "Web3"],
   },
   {
     number: "02",
-    title: "People",
-    subtitle: "Empathy & Community",
+    sysCode: "CORE_PEOPLE",
+    title: "People & Community",
+    subtitle: "Empathy · Developer Advocacy",
     icon: Users,
-    text: "Technology is meaningless without the humans behind it. I thrive when facilitating developer connections, listening to users, and fostering inclusive communities.",
-    tags: ["Developer Relations", "Stakeholder Communication", "Community Advocacy"],
+    text: "Digital systems achieve impact only through human adoption. I thrive when bridging complex technical concepts, facilitating developer ecosystems, and nurturing vibrant communities.",
+    tags: ["DevRel", "Global Community Ops", "Active Empathy", "Public Speaking"],
   },
   {
     number: "03",
-    title: "Creativity & Music",
-    subtitle: "Expression & Storytelling",
+    sysCode: "CORE_CREATIVE",
+    title: "Creativity & Artistry",
+    subtitle: "Vocal Performance · Storytelling",
     icon: Mic,
-    text: "Outside engineering and operations, music and vocal performance are where I recharge. It trains presence, active listening, and creative storytelling that enriches my technical work.",
-    tags: ["Vocal Performance", "Visual Arts", "Storytelling", "Design"],
+    text: "Vocal music and artistic expression sharpen my presence, precision, and active listening skills — bringing high energy, distinct taste, and creative storytelling to technical teams.",
+    tags: ["Vocal Performance", "Design Aesthetics", "Storytelling", "Dynamic Presence"],
   },
 ];
 
@@ -34,80 +37,45 @@ export default function BeyondCode() {
   return (
     <section
       id="beyond-code"
-      className="relative overflow-hidden bg-pink text-deep-brown py-28 md:py-40"
+      className="relative py-28 md:py-36 text-cyber-text"
     >
-      {/* BACKGROUND DECORATIONS */}
-      <div className="pointer-events-none absolute inset-0">
-        <motion.div
-          animate={{
-            x: [0, 60, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -right-40 top-[-80px] h-[500px] w-[500px] rounded-full bg-cream/50 blur-[120px]"
-        />
-
-        <motion.div
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-40 -left-40 h-[450px] w-[450px] rounded-full bg-fanta/25 blur-[100px]"
-        />
-
-        <div
-          className="absolute inset-0 opacity-[0.045]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(58,41,38,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(58,41,38,0.5) 1px, transparent 1px)",
-            backgroundSize: "75px 75px",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
-        {/* SECTION HEADER */}
-        <div className="mb-16 flex items-center justify-between border-b border-deep-brown/15 pb-6">
+        {/* SECTION HUD HEADER */}
+        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border/60 pb-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em]"
+            className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-fanta"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-deep-brown" />
-            <span>06 / Values & Beyond Code</span>
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fanta opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-fanta"></span>
+            </span>
+            <span>// 06_PHILOSOPHY_&_BEYOND_CODE</span>
           </motion.div>
 
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-deep-brown/50">
-            Holistic Perspective
+          <span className="font-mono text-xs uppercase tracking-wider text-cyber-muted">
+            HUMAN_IN_THE_LOOP: [ 100% ]
           </span>
         </div>
 
         {/* MAIN STATEMENT */}
-        <div className="relative mb-24">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs uppercase font-bold tracking-[0.2em] text-deep-brown/50 mb-4"
-          >
-            Philosophy & Mindset
-          </motion.p>
-
+        <div className="relative mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="display text-5xl sm:text-7xl lg:text-8xl leading-[0.85] tracking-[-0.04em]"
+            transition={{ duration: 0.8 }}
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
           >
-            I don&apos;t just build systems.
+            I don&apos;t just engineer systems.
             <br />
-            <span className="text-cream italic">I connect people & ideas.</span>
+            <span className="bg-gradient-to-r from-fanta via-neon-rose to-neon-cyan bg-clip-text text-transparent">
+              I connect humans, code, and vision.
+            </span>
           </motion.h2>
 
           <motion.p
@@ -115,35 +83,40 @@ export default function BeyondCode() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-8 max-w-xl text-sm sm:text-base leading-relaxed text-deep-brown/80"
+            className="mt-6 max-w-2xl text-sm sm:text-base leading-relaxed text-cyber-muted"
           >
-            Remote collaboration requires more than technical code — it demands clear articulation, active empathy, and a creative spirit that keeps projects vibrant and aligned.
+            High-leverage remote collaboration demands more than raw code — it requires clear articulation, proactive empathy, aesthetic taste, and an artistic mindset that keeps teams motivated and aligned.
           </motion.p>
         </div>
 
-        {/* BIG EDITORIAL MARQUEE STRIP */}
-        <div className="overflow-hidden py-6 my-12 border-y border-deep-brown/15">
+        {/* FUTURISTIC CYBER MARQUEE STRIP */}
+        <div className="relative overflow-hidden py-5 my-12 rounded-2xl bg-cyber-panel/40 border border-cyber-border/70 backdrop-blur-xl">
           <motion.div
-            initial={{ x: "-10%" }}
+            initial={{ x: "-50%" }}
             animate={{ x: "0%" }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="flex items-center gap-8 whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-deep-brown/90"
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="flex items-center gap-10 whitespace-nowrap font-mono text-sm sm:text-base tracking-widest text-cyber-muted uppercase"
           >
-            <span>Technology</span>
-            <span className="text-fanta text-2xl">✦</span>
-            <span className="text-cream">People</span>
-            <span className="text-fanta text-2xl">✦</span>
-            <span>Creativity</span>
-            <span className="text-fanta text-2xl">✦</span>
-            <span className="text-cream">Empathy</span>
-            <span className="text-fanta text-2xl">✦</span>
-            <span>Async Precision</span>
-            <span className="text-fanta text-2xl">✦</span>
+            <span className="text-fanta font-bold">SYSTEM_EXPANSION</span>
+            <span className="text-neon-cyan">✦</span>
+            <span>TECHNOLOGY × PEOPLE × CREATIVITY</span>
+            <span className="text-neon-purple">✦</span>
+            <span className="text-white font-bold">DEVREL & ADVOCACY</span>
+            <span className="text-fanta">✦</span>
+            <span>ASYNC PRECISION</span>
+            <span className="text-neon-cyan">✦</span>
+            <span className="text-fanta font-bold">SYSTEM_EXPANSION</span>
+            <span className="text-neon-cyan">✦</span>
+            <span>TECHNOLOGY × PEOPLE × CREATIVITY</span>
+            <span className="text-neon-purple">✦</span>
+            <span className="text-white font-bold">DEVREL & ADVOCACY</span>
+            <span className="text-fanta">✦</span>
+            <span>ASYNC PRECISION</span>
           </motion.div>
         </div>
 
         {/* 3 PILLARS */}
-        <div className="grid md:grid-cols-3 gap-8 mt-20">
+        <div className="grid md:grid-cols-3 gap-8 mt-16">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
@@ -153,35 +126,35 @@ export default function BeyondCode() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="rounded-3xl bg-cream/70 backdrop-blur-md border border-deep-brown/15 p-8 flex flex-col justify-between hover:bg-cream hover:border-fanta transition-all duration-300"
+                className="group relative rounded-3xl bg-black/20 border border-white/15 p-8 backdrop-blur-2xl flex flex-col justify-between hover:border-rose-400/50 hover:bg-black/30 transition-all duration-400 shadow-[0_15px_40px_rgba(0,0,0,0.25)]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-xs font-bold text-deep-brown bg-fanta/30 px-3 py-1 rounded-full">
-                      {pillar.number}
+                    <span className="font-mono text-xs font-bold text-rose-300 bg-rose-500/20 border border-rose-500/30 px-3 py-1 rounded-md">
+                      // {pillar.sysCode}
                     </span>
-                    <div className="p-3 rounded-2xl bg-white/80 border border-deep-brown/10 text-deep-brown">
+                    <div className="p-3 rounded-2xl bg-white/10 border border-white/15 text-white group-hover:text-rose-300 group-hover:border-rose-400/40 transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
 
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-deep-brown/50">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-rose-200">
                     {pillar.subtitle}
                   </p>
-                  <h3 className="display text-3xl text-deep-brown mt-1">
+                  <h3 className="font-display text-2xl font-bold text-white mt-1.5">
                     {pillar.title}
                   </h3>
 
-                  <p className="mt-4 text-xs sm:text-sm text-deep-brown/80 leading-relaxed">
+                  <p className="mt-4 text-xs sm:text-sm text-white/80 leading-relaxed">
                     {pillar.text}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-deep-brown/10 flex flex-wrap gap-2">
+                <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-2">
                   {pillar.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-white/70 border border-deep-brown/10 px-3 py-1 text-[10px] font-semibold text-deep-brown/75"
+                      className="font-mono rounded-lg bg-white/10 border border-white/15 px-2.5 py-1 text-[10px] text-white/90"
                     >
                       {tag}
                     </span>

@@ -1,24 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================= */
-/* COLOR VARIABLES */
-/* ============================= */
-
-:root {
-  --fanta: #f58fa3;
-  --pink: #f7c5cf;
-  --cream: #fff7ec;
-  --brown: #6b4a43;
-  --deep-brown: #3a2926;
-  --white: #fffdf9;
-}
-
-/* ============================= */
-/* RESET & BASE */
+/* GLOBAL RESET & FUTURISTIC BASE */
 /* ============================= */
 
 * {
@@ -27,46 +14,102 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light;
+  color-scheme: dark;
+  background-color: #07060b;
 }
 
 body {
   margin: 0;
-  background: var(--cream);
-  color: var(--deep-brown);
-  font-family: "Manrope", system-ui, -apple-system, sans-serif;
+  background-color: #07060b;
+  color: #f8fafc;
+  font-family: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  selection-background-color: #f43f5e;
 }
-
-/* ============================= */
-/* TEXT SELECTION */
-/* ============================= */
 
 ::selection {
-  background: var(--deep-brown);
-  color: var(--cream);
+  background: #f43f5e;
+  color: #ffffff;
 }
 
 /* ============================= */
-/* DISPLAY FONT */
+/* FUTURISTIC TYPOGRAPHY */
 /* ============================= */
 
-.display {
-  font-family: "DM Serif Display", Georgia, serif;
+.font-display {
+  font-family: "Space Grotesk", "Syne", sans-serif;
+}
+
+.font-mono-code {
+  font-family: "JetBrains Mono", monospace;
 }
 
 /* ============================= */
-/* NOISE TEXTURE (SVG Data-URI) */
+/* CYBER BACKGROUND & AMBIENT GRID */
+/* ============================= */
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.cyber-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ============================= */
+/* GLASSMORPHISM & NEON GLOW */
+/* ============================= */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(251, 113, 133, 0.35);
+  box-shadow: 0 0 35px -5px rgba(251, 113, 133, 0.15);
+}
+
+.text-gradient-neon {
+  background: linear-gradient(135deg, #ffffff 0%, #fda4af 50%, #fb7185 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================= */
+/* NOISE OVERLAY */
 /* ============================= */
 
 .noise-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.022;
   z-index: 999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* ============================= */
@@ -74,50 +117,21 @@ body {
 /* ============================= */
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: #07060b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f7c5cf;
-  border-radius: 4px;
+  background: rgba(251, 113, 133, 0.3);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f58fa3;
+  background: rgba(251, 113, 133, 0.6);
 }
-
-/* ============================= */
-/* GLASSMORPHISM & UTILITIES */
-/* ============================= */
-
-.glass-pill {
-  background: rgba(255, 247, 236, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(58, 41, 38, 0.12);
-}
-
-.glass-card {
-  background: rgba(255, 253, 249, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(58, 41, 38, 0.08);
-}
-
-.glass-card-dark {
-  background: rgba(58, 41, 38, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 247, 236, 0.12);
-}
-
-/* ============================= */
-/* LINKS & INTERACTION */
-/* ============================= */
 
 a {
   color: inherit;

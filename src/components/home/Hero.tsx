@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Sparkles, Globe, MapPin, Clock } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Sparkles, MapPin, Clock, Terminal, Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -27,44 +27,33 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-fanta text-deep-brown pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col justify-between">
-      {/* ================= BACKGROUND EFFECTS ================= */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* soft ambient pink & cream glows */}
-        <div className="absolute -left-32 -top-32 h-[500px] w-[500px] rounded-full bg-pink/60 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-cream/40 blur-3xl" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 h-[350px] w-[350px] rounded-full bg-white/30 blur-2xl" />
-
-        {/* subtle grid texture */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(58,41,38,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(58,41,38,0.35) 1px, transparent 1px)",
-            backgroundSize: "70px 70px",
-          }}
-        />
-      </div>
-
-      {/* ================= MAIN HERO CONTAINER ================= */}
+    <section className="relative min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col justify-between">
+      {/* MAIN HERO CONTAINER */}
       <div className="relative z-10 mx-auto max-w-[1500px] w-full px-5 sm:px-8 md:px-12 flex-1 flex flex-col justify-between">
         
-        {/* TOP STATUS ROW */}
+        {/* TOP TELEMETRY STATUS ROW */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-end gap-4 pb-6"
+          className="flex flex-wrap items-center justify-between gap-4 pb-8"
         >
-          {/* TIMEZONE & LOCATION INFO */}
-          <div className="hidden sm:flex items-center gap-5 text-[11px] font-semibold tracking-wider uppercase text-deep-brown/80">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5 text-deep-brown/60" />
-              Jakarta, Indonesia (UTC+7)
+          {/* SYSTEM ROLE BADGE */}
+          <div className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.04] backdrop-blur-xl px-4 py-1.5 border border-white/[0.08] shadow-sm text-xs font-mono-code">
+            <span className="text-rose-400">SYS::ID</span>
+            <span className="text-slate-400">/</span>
+            <span className="text-slate-200 font-semibold tracking-wider uppercase">DEVREL_OPS & UIUX</span>
+          </div>
+
+          {/* TIMEZONE & LIVE TELEMETRY */}
+          <div className="flex items-center gap-4 text-xs font-mono-code tracking-wider text-slate-400">
+            <span className="hidden sm:flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-rose-400" />
+              JAKARTA [6.2088° S, 106.8456° E]
             </span>
             {time && (
-              <span className="flex items-center gap-1.5 font-mono text-[10px] bg-deep-brown/10 px-2.5 py-1 rounded-full">
-                <Clock className="h-3 w-3" />
+              <span className="flex items-center gap-1.5 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-full text-slate-200">
+                <Clock className="h-3 w-3 text-cyan-400" />
                 {time} WIB
               </span>
             )}
@@ -72,7 +61,7 @@ export default function Hero() {
         </motion.div>
 
         {/* HERO EDITORIAL GRID */}
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center my-auto py-6">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-center my-auto py-8">
           
           {/* LEFT: EDITORIAL TYPOGRAPHY & INTRO */}
           <div>
@@ -80,21 +69,19 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="flex items-center gap-2 mb-4"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-mono-code mb-6"
             >
-              <Sparkles className="h-4 w-4 text-cream" />
-              <span className="text-[11px] uppercase font-bold tracking-[0.22em] text-deep-brown/75">
-                Developer Relations · UI/UX Designer · Tech Operations
-              </span>
+              <Sparkles className="h-3.5 w-3.5 text-rose-400" />
+              <span>COMMUNITY ADVOCACY × TECHNICAL OPERATIONS × DESIGN</span>
             </motion.div>
 
-            {/* BIG HEADLINE */}
+            {/* BIG FUTURISTIC HEADLINE */}
             <div className="relative">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="display text-[15vw] sm:text-[12vw] lg:text-[8.5rem] font-normal leading-[0.82] tracking-[-0.06em] text-cream"
+                className="font-display text-[15vw] sm:text-[12vw] lg:text-[7.8rem] font-extrabold leading-[0.85] tracking-[-0.05em] text-white"
               >
                 Yasmeen
               </motion.h1>
@@ -103,67 +90,67 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="display text-[14.5vw] sm:text-[11.5vw] lg:text-[8rem] font-normal leading-[0.82] tracking-[-0.06em] text-deep-brown ml-4 sm:ml-8 lg:ml-12"
+                className="font-display text-[14.5vw] sm:text-[11.5vw] lg:text-[7.4rem] font-extrabold leading-[0.85] tracking-[-0.05em] text-gradient-neon ml-2 sm:ml-6 lg:ml-10"
               >
-                Almira<span className="text-cream">.</span>
+                Almira<span className="text-cyan-400">.</span>
               </motion.h1>
             </div>
 
-            {/* PITHY PITCH FOR REMOTE HIRING MANAGERS */}
+            {/* VALUE PROPOSITION PITCH */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-8 max-w-xl"
             >
-              <p className="display text-xl sm:text-2xl text-deep-brown italic">
-                Bridging Technology × People × Creative Experience
+              <p className="font-display text-xl sm:text-2xl text-slate-200 font-semibold tracking-tight">
+                Architecting Developer Ecosystems & Intuitive Digital Experiences.
               </p>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-deep-brown/85">
-                I help fast-paced teams build developer ecosystems, design user-centric interfaces, and coordinate complex technical operations with strong async communication.
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-400">
+                I help fast-paced teams build developer engagement, craft user-centered interfaces, and coordinate complex technical operations with strong async communication.
               </p>
             </motion.div>
 
-            {/* ACTION BUTTONS GROUP */}
+            {/* ACTION BUTTONS */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-8 flex flex-wrap items-center gap-4"
+              className="mt-10 flex flex-wrap items-center gap-4"
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-deep-brown text-cream px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] shadow-md transition-all duration-300 hover:bg-cream hover:text-deep-brown hover:shadow-lg hover:scale-[1.02]"
+                className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 text-white px-7 py-4 text-xs font-bold uppercase tracking-wider shadow-[0_0_25px_rgba(244,63,94,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(244,63,94,0.6)] hover:scale-[1.02]"
               >
-                <span>View Selected Work</span>
-                <ArrowDown className="h-3.5 w-3.5" />
+                <span>Explore Featured Work</span>
+                <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
               </a>
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-deep-brown/40 bg-cream/40 backdrop-blur-sm text-deep-brown px-6 py-3.5 text-xs font-bold uppercase tracking-[0.16em] transition-all duration-300 hover:border-deep-brown hover:bg-deep-brown hover:text-cream"
+                className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-white/[0.03] backdrop-blur-xl text-slate-200 px-7 py-4 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:border-rose-400/50 hover:bg-white/[0.08] hover:text-white"
               >
-                <span>Hire / Get in Touch</span>
-                <ArrowUpRight className="h-3.5 w-3.5" />
+                <span>Connect / Hire</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-rose-400" />
               </a>
             </motion.div>
 
-            {/* KEY METRICS / ATTRIBUTES */}
+            {/* ATTRIBUTE TAGS */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 flex flex-wrap gap-2 sm:gap-3"
+              className="mt-10 flex flex-wrap gap-2.5"
             >
               {[
                 "Web3 & Tech Communities",
                 "Figma Design Systems",
                 "Next.js / React Web",
-                "Async-First Workflow",
+                "Async-First Workflows",
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full bg-cream/60 border border-deep-brown/10 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-deep-brown/80"
+                  className="rounded-lg bg-white/[0.03] border border-white/[0.07] px-3.5 py-1.5 text-[11px] font-mono-code text-slate-300 tracking-wide"
                 >
                   {skill}
                 </span>
@@ -171,7 +158,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: PORTRAIT PRESENTATION & FLOATING BADGES */}
+          {/* RIGHT: FUTURISTIC PORTRAIT HOLO-FRAME */}
           <div className="relative flex justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
@@ -179,13 +166,20 @@ export default function Hero() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]"
             >
-              {/* BACKDROP ROTATING DECORATION */}
-              <div className="pointer-events-none absolute -inset-5 rounded-[45%_45%_35%_35%] border-2 border-cream/50" />
+              {/* CYBER FRAME ACCENTS */}
+              <div className="pointer-events-none absolute -inset-3 rounded-3xl border border-rose-500/20 shadow-[0_0_50px_rgba(244,63,94,0.15)]" />
               
-              <div className="pointer-events-none absolute -inset-10 rounded-[50%_50%_40%_40%] border border-cream/25 border-dashed animate-[spin_60s_linear_infinite]" />
+              {/* ROTATING RADIAL LASER RING */}
+              <div className="pointer-events-none absolute -inset-8 rounded-full border border-dashed border-cyan-400/20 animate-[spin_50s_linear_infinite]" />
+
+              {/* CORNER BRACKETS */}
+              <div className="pointer-events-none absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-rose-400" />
+              <div className="pointer-events-none absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-rose-400" />
+              <div className="pointer-events-none absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-rose-400" />
+              <div className="pointer-events-none absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-rose-400" />
 
               {/* PHOTO CONTAINER */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[45%_45%_35%_35%] border-2 border-cream bg-pink shadow-[0_25px_60px_rgba(58,41,38,0.22)]">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 backdrop-blur-md shadow-2xl">
                 <Image
                   src="/images/profile/yasmeenal.jpeg"
                   alt="Yasmeen Almira — Developer Relations & UI/UX Designer"
@@ -194,28 +188,28 @@ export default function Hero() {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
 
-                {/* SOFT GRADIENT OVERLAY AT BOTTOM */}
-                <div className="absolute inset-0 bg-gradient-to-t from-deep-brown/40 via-transparent to-transparent pointer-events-none" />
+                {/* CYBER GRADIENT OVERLAYS */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07060b] via-transparent to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
               </div>
             </motion.div>
           </div>
 
         </div>
 
-        {/* BOTTOM TICKER / FOOTNOTE */}
-        <div className="border-t border-deep-brown/15 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase font-bold tracking-[0.18em] text-deep-brown/70">
-          <div className="flex items-center gap-4">
-            <span>Jakarta, ID · 6.2088° S, 106.8456° E</span>
-            <span className="hidden md:inline text-deep-brown/30">|</span>
-            <span className="hidden md:inline">Open to Remote Relocation / Travel</span>
+        {/* BOTTOM TELEMETRY FOOTNOTE */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-code tracking-wider text-slate-400 border-t border-white/10">
+          <div className="flex items-center gap-3">
+            <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
+            <span>JAKARTA, ID · 6.2088° S, 106.8456° E · OPEN TO REMOTE WORLDWIDE</span>
           </div>
 
           <a
             href="#about"
-            className="group flex items-center gap-2 hover:text-deep-brown transition-colors"
+            className="group flex items-center gap-2 text-slate-300 hover:text-rose-300 transition-colors"
           >
-            <span>Scroll to discover</span>
-            <ArrowDown className="h-3 w-3 transition-transform group-hover:translate-y-1" />
+            <span>DISCOVER PROFILE</span>
+            <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-1 text-rose-400" />
           </a>
         </div>
 

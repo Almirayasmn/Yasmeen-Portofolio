@@ -2,40 +2,44 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Copy, Check, Send, Mail, Linkedin, Github, Phone, ArrowUpRight, Globe, Clock, Sparkles } from "lucide-react";
+import { Copy, Check, Send, Mail, Linkedin, Github, Phone, ArrowUpRight, Globe, Clock, Sparkles, Terminal, Radio, ShieldCheck } from "lucide-react";
 
 const socialLinks = [
   {
     number: "01",
-    label: "LinkedIn",
+    sysId: "CHANNEL_LINKEDIN",
+    label: "LinkedIn Profile",
     value: "almirarayass",
     href: "https://www.linkedin.com/in/almirarayass",
     icon: Linkedin,
-    description: "Professional network, experience, & recommendations",
+    description: "Professional background, endorsements & career trajectory",
   },
   {
     number: "02",
-    label: "GitHub",
+    sysId: "CHANNEL_GITHUB",
+    label: "GitHub Repositories",
     value: "Almirayasmn",
     href: "https://github.com/Almirayasmn",
     icon: Github,
-    description: "Open-source repositories, Next.js code, & experiments",
+    description: "Open-source projects, Next.js codebases, & commits",
   },
   {
     number: "03",
-    label: "Email",
+    sysId: "CHANNEL_EMAIL",
+    label: "Direct Dispatch",
     value: "yasmeenalmira9@gmail.com",
     href: "mailto:yasmeenalmira9@gmail.com",
     icon: Mail,
-    description: "Direct email for remote work inquiries & interviews",
+    description: "Primary communication line for remote inquiries & interviews",
   },
   {
     number: "04",
-    label: "WhatsApp / Direct",
+    sysId: "CHANNEL_WHATSAPP",
+    label: "Instant Messenger",
     value: "+62 882-2374-0272",
     href: "https://wa.me/6288223740272",
     icon: Phone,
-    description: "Instant messaging for fast communication & scheduling",
+    description: "Direct chat for fast syncs and scheduling",
   },
 ];
 
@@ -61,63 +65,44 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-b from-pink via-deep-brown to-deep-brown text-cream py-28 md:py-40"
+      className="relative py-28 md:py-36 text-cyber-text"
     >
-      {/* AMBIENT GLOWS */}
-      <div className="pointer-events-none absolute inset-0">
-        <motion.div
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -right-40 -top-40 h-[550px] w-[550px] rounded-full bg-fanta/20 blur-[130px]"
-        />
-        <div className="absolute -left-40 bottom-10 h-[500px] w-[500px] rounded-full bg-pink/15 blur-[120px]" />
-
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,247,236,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,247,236,0.4) 1px, transparent 1px)",
-            backgroundSize: "75px 75px",
-          }}
-        />
-      </div>
-
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
-        {/* SECTION HEADER */}
-        <div className="mb-16 flex items-center justify-between border-b border-cream/15 pb-6">
+        {/* SECTION HUD HEADER */}
+        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border/60 pb-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em]"
+            className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-fanta"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-fanta" />
-            <span>07 / Get In Touch</span>
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fanta opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-fanta"></span>
+            </span>
+            <span>// 07_TRANSMISSION_TERMINAL_&_CONTACT</span>
           </motion.div>
 
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cream/50">
-            Let&apos;s Connect
+          <span className="font-mono text-xs uppercase tracking-wider text-neon-cyan">
+            SIGNAL: [ ONLINE / READY ]
           </span>
         </div>
 
-        {/* TITLE */}
+        {/* TITLE & COPY ACTION */}
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-20">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="display text-5xl sm:text-7xl lg:text-8xl leading-[0.85] tracking-[-0.04em]"
+              transition={{ duration: 0.8 }}
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
             >
-              Let&apos;s create something{" "}
-              <span className="text-fanta italic underline decoration-pink decoration-4 underline-offset-4">
-                remarkable.
+              Let&apos;s engineer something{" "}
+              <span className="bg-gradient-to-r from-fanta via-neon-rose to-neon-cyan bg-clip-text text-transparent">
+                remarkable together.
               </span>
             </motion.h2>
           </div>
@@ -129,49 +114,49 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-4"
           >
-            <p className="text-sm sm:text-base leading-relaxed text-cream/75">
-              I am currently open to remote roles, Developer Relations positions, UI/UX opportunities, and technical operations collaborations with international teams.
+            <p className="text-sm sm:text-base leading-relaxed text-cyber-muted">
+              I am actively open to remote roles, Developer Relations, UI/UX Product Design positions, and technical operations collaborations with international teams.
             </p>
 
             {/* QUICK COPY EMAIL BUTTON */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="pt-2">
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 rounded-full bg-fanta text-deep-brown font-bold text-xs uppercase tracking-wider px-5 py-3 shadow-lg hover:bg-cream transition-all hover:scale-[1.02]"
+                className="font-mono inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-fanta to-neon-rose text-cyber-black font-bold text-xs uppercase tracking-wider px-5 py-3.5 shadow-[0_0_25px_rgba(255,45,117,0.5)] hover:scale-[1.02] transition-all"
               >
                 {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                <span>{copied ? "Email Copied to Clipboard!" : "Copy Email: yasmeenalmira9@gmail.com"}</span>
+                <span>{copied ? "EMAIL COPIED TO CLIPBOARD!" : "COPY: yasmeenalmira9@gmail.com"}</span>
               </button>
             </div>
           </motion.div>
         </div>
 
-        {/* REMOTE AVAILABILITY & TIMEZONE BANNER */}
+        {/* REMOTE AVAILABILITY & TELEMETRY HUD */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 rounded-3xl bg-cream/10 border border-cream/15 p-6 sm:p-8 backdrop-blur-md mb-16"
+          className="grid md:grid-cols-3 gap-6 rounded-3xl bg-cyber-panel/40 border border-cyber-border/70 p-6 sm:p-8 backdrop-blur-2xl mb-16 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
         >
           <div className="flex items-start gap-3">
             <span className="relative flex h-3 w-3 mt-1 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
             </span>
             <div>
-              <h4 className="text-sm font-bold text-cream">Remote Availability</h4>
-              <p className="text-xs text-cream/70 mt-0.5 leading-relaxed">
-                Open to Remote Full-time, Part-time & Contract agreements worldwide.
+              <h4 className="font-display text-sm font-bold text-white">Status: Open to Work</h4>
+              <p className="font-mono text-xs text-cyber-muted mt-1 leading-relaxed">
+                Available for Remote Full-time, Part-time & Contract roles worldwide.
               </p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <Globe className="h-4 w-4 text-fanta mt-1 shrink-0" />
+            <Globe className="h-4 w-4 text-neon-cyan mt-1 shrink-0" />
             <div>
-              <h4 className="text-sm font-bold text-cream">Timezone & Overlap</h4>
-              <p className="text-xs text-cream/70 mt-0.5 leading-relaxed">
-                UTC+7 (Jakarta) with flexible schedule for US, European, and APAC overlap.
+              <h4 className="font-display text-sm font-bold text-white">Timezone Coordination</h4>
+              <p className="font-mono text-xs text-cyber-muted mt-1 leading-relaxed">
+                UTC+7 (Jakarta) with high flexibility for Americas, EMEA, and APAC overlap.
               </p>
             </div>
           </div>
@@ -179,21 +164,21 @@ export default function Contact() {
           <div className="flex items-start gap-3">
             <Sparkles className="h-4 w-4 text-fanta mt-1 shrink-0" />
             <div>
-              <h4 className="text-sm font-bold text-cream">Target Roles</h4>
-              <p className="text-xs text-cream/70 mt-0.5 leading-relaxed">
+              <h4 className="font-display text-sm font-bold text-white">Primary Target Focus</h4>
+              <p className="font-mono text-xs text-cyber-muted mt-1 leading-relaxed">
                 Developer Relations · UI/UX Design · Technical Project Operations · Frontend.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* CONTACT LINKS & DIRECT FORM GRID */}
+        {/* CONTACT LINKS & DIRECT TRANSMISSION TERMINAL */}
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
           
           {/* SOCIAL LINKS LIST */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-fanta mb-6">
-              Direct Channels
+            <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-rose-300 mb-6">
+              // DIRECT_CHANNELS
             </h3>
 
             {socialLinks.map((contact, index) => {
@@ -208,79 +193,85 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative flex items-center justify-between rounded-2xl bg-cream/[0.06] border border-cream/15 p-5 sm:p-6 transition-all duration-300 hover:bg-cream/[0.12] hover:border-fanta"
+                  className="group relative flex items-center justify-between rounded-3xl bg-black/20 border border-white/15 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 hover:bg-black/30 hover:border-rose-400/60 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-fanta/20 text-fanta border border-fanta/30 group-hover:bg-fanta group-hover:text-deep-brown transition-colors">
+                    <div className="p-3 rounded-2xl bg-rose-500/20 text-rose-300 border border-rose-500/30 group-hover:bg-rose-500 group-hover:text-black transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-fanta">
+                      <span className="font-mono text-[10px] text-rose-200 uppercase tracking-wider block">
+                        // {contact.sysId}
+                      </span>
+                      <p className="font-display text-base font-bold text-white mt-0.5">
                         {contact.label}
                       </p>
-                      <p className="text-sm sm:text-base font-semibold text-cream mt-0.5">
+                      <p className="font-mono text-xs text-white/80 mt-0.5">
                         {contact.value}
-                      </p>
-                      <p className="text-[11px] text-cream/50 mt-0.5">
-                        {contact.description}
                       </p>
                     </div>
                   </div>
 
-                  <ArrowUpRight className="h-5 w-5 text-cream/50 group-hover:text-fanta group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <ArrowUpRight className="h-5 w-5 text-white/60 group-hover:text-rose-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </motion.a>
               );
             })}
           </div>
 
-          {/* QUICK REACH OUT EMAIL FORM */}
+          {/* QUICK DIRECT DISPATCH FORM */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-cream/10 border border-cream/15 p-6 sm:p-8 backdrop-blur-md"
+            className="relative rounded-3xl bg-black/25 border border-white/15 p-6 sm:p-8 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.25)]"
           >
-            <h3 className="text-base font-bold text-cream flex items-center gap-2">
-              <Mail className="h-4 w-4 text-fanta" />
-              <span>Send a Quick Message</span>
-            </h3>
-            <p className="text-xs text-cream/70 mt-1 mb-6">
-              Have an open role or project? Send a direct note to Yasmeen&apos;s inbox.
+            {/* CORNER BRACKETS */}
+            <div className="pointer-events-none absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-rose-400/40 rounded-tr-3xl" />
+            <div className="pointer-events-none absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-rose-400/40 rounded-bl-3xl" />
+
+            <div className="flex items-center gap-2 mb-1">
+              <Terminal className="h-4 w-4 text-rose-300" />
+              <h3 className="font-display text-lg font-bold text-white">
+                Transmit Message
+              </h3>
+            </div>
+            <p className="font-mono text-xs text-rose-200/80 mb-6">
+              Have a remote vacancy or exciting proposal? Direct message Yasmeen.
             </p>
 
-            <form onSubmit={handleSendEmail} className="space-y-4">
+            <form onSubmit={handleSendEmail} className="space-y-4 font-mono text-xs">
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-cream/60 block mb-1">
-                  Subject / Role Title
+                <label className="text-[10px] uppercase tracking-wider text-rose-200/80 block mb-1">
+                  // SUBJECT_OR_ROLE_TITLE
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Developer Relations / UI/UX Role (Remote)"
+                  placeholder="e.g. Remote DevRel / UI/UX Role Discussion"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full rounded-xl bg-deep-brown/60 border border-cream/20 px-4 py-3 text-xs text-cream placeholder:text-cream/30 focus:border-fanta focus:outline-none"
+                  className="w-full rounded-2xl bg-white/10 border border-white/15 px-4 py-3.5 text-white placeholder:text-white/40 focus:border-rose-400 focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-cream/60 block mb-1">
-                  Message / Details
+                <label className="text-[10px] uppercase tracking-wider text-rose-200/80 block mb-1">
+                  // MESSAGE_PAYLOAD
                 </label>
                 <textarea
                   rows={4}
-                  placeholder="Hi Yasmeen, we came across your portfolio and would love to discuss a remote opportunity with our team..."
+                  placeholder="Hi Yasmeen, I reviewed your portfolio and would like to invite you for a discussion regarding an opportunity..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full rounded-xl bg-deep-brown/60 border border-cream/20 px-4 py-3 text-xs text-cream placeholder:text-cream/30 focus:border-fanta focus:outline-none resize-none"
+                  className="w-full rounded-2xl bg-white/10 border border-white/15 px-4 py-3.5 text-white placeholder:text-white/40 focus:border-rose-400 focus:outline-none transition-colors resize-none"
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 rounded-xl bg-fanta text-deep-brown font-bold text-xs uppercase tracking-wider py-3.5 hover:bg-cream transition-all shadow-md"
+                className="w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 text-white font-bold text-xs uppercase tracking-wider py-4 hover:shadow-[0_0_25px_rgba(244,63,94,0.5)] hover:scale-[1.01] transition-all"
               >
-                <span>Compose Direct Email</span>
+                <span>INITIATE DIRECT TRANSMISSION</span>
                 <Send className="h-3.5 w-3.5" />
               </button>
             </form>

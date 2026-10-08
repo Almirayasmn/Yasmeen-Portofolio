@@ -131,10 +131,6 @@ export default function Footer() {
           <span className="flex items-center gap-1.5 text-white">
             DESIGNED & COMPILED IN JAKARTA, ID
           </span>
-
-          <span className="text-[#fda4af]">
-            [ NEXT.JS 15 · PASTEL & CHOCOLATE ]
-          </span>
         </div>
 
       </div>

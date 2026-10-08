@@ -1,8 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Building, CheckCircle, ChevronDown, Sparkles, MapPin, Briefcase, Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import {
+  Calendar,
+  Building,
+  CheckCircle,
+  ChevronDown,
+  Sparkles,
+  MapPin,
+  Plus,
+  Minus,
+  Briefcase,
+  Layers,
+  ArrowUpRight,
+} from "lucide-react";
 
 interface ExperienceItem {
   id: string;
@@ -81,8 +93,31 @@ const experiences: ExperienceItem[] = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
 export default function Experience() {
-  // Store expanded card IDs (default: first experience expanded)
+  // Store expanded card IDs (default: first experience open)
   const [expandedIds, setExpandedIds] = useState<string[]>(["kemendikdasmen-monitoring"]);
 
   const toggleCard = (id: string) => {
@@ -119,9 +154,11 @@ export default function Experience() {
           </motion.div>
 
           <div className="flex items-center gap-3">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               onClick={allExpanded ? collapseAll : expandAll}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-1 text-xs font-mono-code font-bold tracking-wider text-white transition-all hover:scale-105"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-1 text-xs font-mono-code font-bold tracking-wider text-white transition-colors"
             >
               {allExpanded ? (
                 <>
@@ -134,7 +171,7 @@ export default function Experience() {
                   <span>EXPAND ALL</span>
                 </>
               )}
-            </button>
+            </motion.button>
             <div className="hidden sm:inline-flex items-center gap-2 rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3 py-1 text-xs font-mono-code font-bold tracking-wider text-emerald-300">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -152,7 +189,7 @@ export default function Experience() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white"
             >
               Proven track record of{" "}
@@ -164,7 +201,7 @@ export default function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-3"
           >
             <p className="text-sm sm:text-base leading-relaxed text-white/85 font-normal">
@@ -172,204 +209,232 @@ export default function Experience() {
             </p>
             <p className="text-xs font-mono-code text-[#fda4af] font-semibold flex items-center gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-[#fb7185]" />
-              <span>Click on any card to view key responsibilities and impact details.</span>
+              <span>Click on any card to explore full responsibilities & impact.</span>
             </p>
           </motion.div>
         </div>
 
         {/* EXPERIENCE TIMELINE INTERACTIVE ACCORDION CARDS */}
-        <div className="space-y-6">
-          {experiences.map((exp, index) => {
-            const isExpanded = expandedIds.includes(exp.id);
+        <LayoutGroup>
+          <div className="space-y-5">
+            {experiences.map((exp, index) => {
+              const isExpanded = expandedIds.includes(exp.id);
 
-            return (
-              <motion.article
-                key={exp.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group relative rounded-3xl backdrop-blur-2xl border transition-all duration-300 overflow-hidden ${
-                  isExpanded
-                    ? "bg-black/40 border-[#fb7185]/70 shadow-[0_0_50px_rgba(251,113,133,0.2)]"
-                    : "bg-black/25 border-white/20 hover:border-white/40 hover:bg-black/35"
-                }`}
-              >
-                {/* ACTIVE ACCENT GLOW BAR */}
-                {isExpanded && (
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#fb7185] to-transparent" />
-                )}
-
-                {/* CLICKABLE HEADER AREA */}
-                <button
-                  type="button"
-                  onClick={() => toggleCard(exp.id)}
-                  aria-expanded={isExpanded}
-                  className="w-full text-left p-6 sm:p-8 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fb7185] rounded-3xl transition-colors"
+              return (
+                <motion.article
+                  layout
+                  key={exp.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { duration: 0.5, delay: index * 0.08 },
+                    y: { duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] },
+                  }}
+                  className={`group relative rounded-3xl backdrop-blur-2xl border transition-all duration-300 overflow-hidden ${
+                    isExpanded
+                      ? "bg-black/40 border-[#fb7185]/80 shadow-[0_10px_40px_rgba(251,113,133,0.22)]"
+                      : "bg-black/25 border-white/20 hover:border-white/40 hover:bg-black/35 hover:shadow-lg"
+                  }`}
                 >
-                  {/* TOP META ROW */}
-                  <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                    <div className="flex flex-wrap items-center gap-2.5">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#fda4af] bg-[#fb7185]/20 border border-[#fb7185]/30 px-3.5 py-1 rounded-full">
-                        <Calendar className="h-3 w-3 text-[#fb7185]" />
-                        {exp.year}
-                      </span>
-                      <span className="text-xs font-mono-code text-white/70 font-semibold">
-                        // {exp.period}
-                      </span>
-                    </div>
+                  {/* ACTIVE ACCENT GLOW BAR */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-300 ${
+                      isExpanded
+                        ? "opacity-100 bg-gradient-to-r from-transparent via-[#fb7185] to-transparent"
+                        : "opacity-0"
+                    }`}
+                  />
 
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-mono-code uppercase tracking-wider text-white font-bold">
-                        {exp.type}
-                      </span>
-                    </div>
-                  </div>
+                  {/* CLICKABLE HEADER AREA */}
+                  <button
+                    type="button"
+                    onClick={() => toggleCard(exp.id)}
+                    aria-expanded={isExpanded}
+                    className="w-full text-left p-6 sm:p-8 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fb7185] rounded-3xl transition-colors"
+                  >
+                    {/* TOP META ROW */}
+                    <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#fda4af] bg-[#fb7185]/20 border border-[#fb7185]/30 px-3.5 py-1 rounded-full">
+                          <Calendar className="h-3 w-3 text-[#fb7185]" />
+                          {exp.year}
+                        </span>
+                        <span className="text-xs font-mono-code text-white/70 font-semibold">
+                          // {exp.period}
+                        </span>
+                      </div>
 
-                  {/* ROLE & COMPANY ROW WITH TOGGLE INDICATOR */}
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1.5 max-w-3xl">
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight group-hover:text-[#fda4af] transition-colors">
-                        {exp.role}
-                      </h3>
-                      <div className="flex items-center gap-2 text-xs sm:text-sm font-mono-code font-bold uppercase tracking-wider text-[#fda4af]">
-                        <Building className="h-3.5 w-3.5 shrink-0 text-[#fb7185]" />
-                        <span>{exp.company}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-[11px] font-mono-code uppercase tracking-wider text-white font-bold">
+                          {exp.type}
+                        </span>
                       </div>
                     </div>
 
-                    {/* INTERACTIVE EXPAND BUTTON */}
-                    <div className="shrink-0 pt-2 md:pt-0">
-                      <div
-                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono-code font-bold tracking-wider transition-all duration-300 ${
-                          isExpanded
-                            ? "bg-[#fb7185] text-[#25120f] border-[#fb7185] shadow-[0_0_15px_rgba(251,113,133,0.4)]"
-                            : "bg-white/10 text-white border-white/20 group-hover:border-[#fb7185]/60 group-hover:bg-white/15"
-                        }`}
-                      >
-                        <span>{isExpanded ? "HIDE DETAILS" : "VIEW DETAILS"}</span>
+                    {/* ROLE & COMPANY ROW WITH TOGGLE INDICATOR */}
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      <div className="space-y-1.5 max-w-3xl">
+                        <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight group-hover:text-[#fda4af] transition-colors">
+                          {exp.role}
+                        </h3>
+                        <div className="flex items-center gap-2 text-xs sm:text-sm font-mono-code font-bold uppercase tracking-wider text-[#fda4af]">
+                          <Building className="h-3.5 w-3.5 shrink-0 text-[#fb7185]" />
+                          <span>{exp.company}</span>
+                        </div>
+                      </div>
+
+                      {/* INTERACTIVE EXPAND BUTTON */}
+                      <div className="shrink-0 pt-2 md:pt-0">
                         <motion.div
-                          animate={{ rotate: isExpanded ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono-code font-bold tracking-wider transition-all duration-300 ${
+                            isExpanded
+                              ? "bg-[#fb7185] text-[#25120f] border-[#fb7185] shadow-[0_0_16px_rgba(251,113,133,0.5)]"
+                              : "bg-white/10 text-white border-white/20 group-hover:border-[#fb7185]/60 group-hover:bg-white/15"
+                          }`}
                         >
-                          <ChevronDown className="h-4 w-4" />
+                          <span>{isExpanded ? "HIDE DETAILS" : "VIEW DETAILS"}</span>
+                          <motion.div
+                            animate={{ rotate: isExpanded ? 180 : 0 }}
+                            transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                          >
+                            <ChevronDown className="h-4 w-4" />
+                          </motion.div>
                         </motion.div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* SHORT PREVIEW SUMMARY (Visible when collapsed for quick skimming) */}
-                  {!isExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.2 }}
-                      className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-white/75"
-                    >
-                      <p className="line-clamp-2 sm:line-clamp-1 font-normal text-white/80">
-                        {exp.summary}
-                      </p>
-                      <div className="flex items-center gap-1.5 shrink-0 text-[11px] font-mono-code text-white/60">
-                        <MapPin className="h-3 w-3 text-[#fda4af]" />
-                        <span>{exp.location}</span>
-                      </div>
-                    </motion.div>
-                  )}
-                </button>
+                    {/* SHORT PREVIEW SUMMARY (Visible when collapsed for quick skimming) */}
+                    {!isExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-white/75"
+                      >
+                        <p className="line-clamp-2 sm:line-clamp-1 font-normal text-white/80">
+                          {exp.summary}
+                        </p>
+                        <div className="flex items-center gap-1.5 shrink-0 text-[11px] font-mono-code text-white/60">
+                          <MapPin className="h-3 w-3 text-[#fda4af]" />
+                          <span>{exp.location}</span>
+                        </div>
+                      </motion.div>
+                    )}
+                  </button>
 
-                {/* EXPANDED DETAILED DRAWER CONTENT */}
-                <AnimatePresence initial={false}>
-                  {isExpanded && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden border-t border-white/15"
-                    >
-                      <div className="p-6 sm:p-8 md:p-10 bg-black/20">
-                        <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
-                          
-                          {/* LEFT: FULL DESCRIPTION & DETAILED BULLET POINTS */}
-                          <div className="space-y-6">
-                            <div>
-                              <span className="text-xs font-mono-code uppercase tracking-wider text-[#fda4af] font-bold block mb-2">
-                                // OVERVIEW & SCOPE
-                              </span>
-                              <p className="text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                {exp.description}
-                              </p>
-                            </div>
-
-                            <div>
-                              <span className="text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-3">
-                                KEY CONTRIBUTIONS & IMPACT
-                              </span>
-                              <div className="space-y-3">
-                                {exp.points.map((point) => (
-                                  <div
-                                    key={point}
-                                    className="flex items-start gap-3 text-xs sm:text-sm text-white/90 font-normal leading-relaxed bg-white/5 p-3 rounded-2xl border border-white/10 hover:border-white/20 transition-colors"
-                                  >
-                                    <CheckCircle className="h-4 w-4 text-[#fb7185] mt-0.5 shrink-0" />
-                                    <span>{point}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* RIGHT: TOOLS, PROTOCOLS & WORK ENVIRONMENT */}
-                          <div className="lg:border-l lg:border-white/15 lg:pl-8 flex flex-col justify-between space-y-6">
-                            <div>
-                              <span className="text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-3">
-                                TOOLS & DOMAIN PROTOCOLS
-                              </span>
-                              <div className="flex flex-wrap gap-2">
-                                {exp.skills.map((skill) => (
-                                  <span
-                                    key={skill}
-                                    className="rounded-xl bg-white/10 border border-white/15 px-3 py-1.5 text-xs font-mono-code text-white font-semibold shadow-xs"
-                                  >
-                                    {skill}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="pt-6 border-t border-white/15 space-y-3">
-                              <div>
-                                <span className="text-xs font-mono-code uppercase tracking-wider text-white/60 font-bold block">
-                                  LOCATION & WORK MODE
+                  {/* EXPANDED DETAILED DRAWER CONTENT */}
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        key="expanded-content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          height: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+                          opacity: { duration: 0.3, ease: "easeInOut" },
+                        }}
+                        className="overflow-hidden border-t border-white/15"
+                      >
+                        <motion.div
+                          variants={containerVariants}
+                          initial="hidden"
+                          animate="show"
+                          className="p-6 sm:p-8 md:p-10 bg-black/20"
+                        >
+                          <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
+                            
+                            {/* LEFT: FULL DESCRIPTION & DETAILED BULLET POINTS */}
+                            <div className="space-y-6">
+                              <motion.div variants={itemVariants}>
+                                <span className="text-xs font-mono-code uppercase tracking-wider text-[#fda4af] font-bold block mb-2">
+                                  // OVERVIEW & SCOPE
                                 </span>
-                                <div className="flex items-center gap-2 mt-1.5">
-                                  <MapPin className="h-4 w-4 text-[#fb7185] shrink-0" />
-                                  <p className="text-xs sm:text-sm font-mono-code text-white font-bold">
-                                    {exp.location}
-                                  </p>
+                                <p className="text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                  {exp.description}
+                                </p>
+                              </motion.div>
+
+                              <motion.div variants={itemVariants}>
+                                <span className="text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-3">
+                                  KEY CONTRIBUTIONS & IMPACT
+                                </span>
+                                <div className="space-y-3">
+                                  {exp.points.map((point) => (
+                                    <motion.div
+                                      key={point}
+                                      variants={itemVariants}
+                                      className="flex items-start gap-3 text-xs sm:text-sm text-white/90 font-normal leading-relaxed bg-white/5 p-3.5 rounded-2xl border border-white/10 hover:border-white/20 transition-colors"
+                                    >
+                                      <CheckCircle className="h-4 w-4 text-[#fb7185] mt-0.5 shrink-0" />
+                                      <span>{point}</span>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            </div>
+
+                            {/* RIGHT: TOOLS, PROTOCOLS & WORK ENVIRONMENT */}
+                            <motion.div
+                              variants={itemVariants}
+                              className="lg:border-l lg:border-white/15 lg:pl-8 flex flex-col justify-between space-y-6"
+                            >
+                              <div>
+                                <span className="text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-3">
+                                  TOOLS & DOMAIN PROTOCOLS
+                                </span>
+                                <div className="flex flex-wrap gap-2">
+                                  {exp.skills.map((skill) => (
+                                    <span
+                                      key={skill}
+                                      className="rounded-xl bg-white/10 border border-white/15 px-3 py-1.5 text-xs font-mono-code text-white font-semibold shadow-xs"
+                                    >
+                                      {skill}
+                                    </span>
+                                  ))}
                                 </div>
                               </div>
 
-                              <button
-                                type="button"
-                                onClick={() => toggleCard(exp.id)}
-                                className="w-full mt-4 py-2.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-mono-code font-bold text-white/80 hover:text-white transition-all text-center"
-                              >
-                                ↑ Close Details
-                              </button>
-                            </div>
-                          </div>
+                              <div className="pt-6 border-t border-white/15 space-y-3">
+                                <div>
+                                  <span className="text-xs font-mono-code uppercase tracking-wider text-white/60 font-bold block">
+                                    LOCATION & WORK MODE
+                                  </span>
+                                  <div className="flex items-center gap-2 mt-1.5">
+                                    <MapPin className="h-4 w-4 text-[#fb7185] shrink-0" />
+                                    <p className="text-xs sm:text-sm font-mono-code text-white font-bold">
+                                      {exp.location}
+                                    </p>
+                                  </div>
+                                </div>
 
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.article>
-            );
-          })}
-        </div>
+                                <motion.button
+                                  whileHover={{ scale: 1.02 }}
+                                  whileTap={{ scale: 0.98 }}
+                                  type="button"
+                                  onClick={() => toggleCard(exp.id)}
+                                  className="w-full mt-4 py-2.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-mono-code font-bold text-white/80 hover:text-white transition-all text-center"
+                                >
+                                  ↑ Close Details
+                                </motion.button>
+                              </div>
+                            </motion.div>
+
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.article>
+              );
+            })}
+          </div>
+        </LayoutGroup>
 
       </div>
     </section>

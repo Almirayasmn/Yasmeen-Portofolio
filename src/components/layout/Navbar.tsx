@@ -54,35 +54,35 @@ export default function Navbar() {
           <nav
             className={`flex items-center justify-between transition-all duration-300 rounded-2xl px-5 sm:px-7 py-3 border ${
               scrolled
-                ? "bg-white/85 backdrop-blur-2xl border-[#2b1810]/15 shadow-[0_10px_30px_rgba(43,24,16,0.08)]"
-                : "bg-white/60 backdrop-blur-md border-[#2b1810]/10 shadow-sm"
+                ? "bg-[#25120f]/85 backdrop-blur-2xl border-white/20 shadow-[0_10px_35px_rgba(37,18,15,0.5)]"
+                : "bg-white/15 backdrop-blur-xl border-white/25 shadow-lg"
             }`}
           >
             {/* LEFT — BRAND IDENTITY */}
             <div className="flex items-center gap-3">
               <a
                 href="#"
-                className="group flex items-center gap-2 font-display text-lg sm:text-xl font-bold tracking-tight text-[#2b1810] transition-transform duration-300 hover:scale-[1.02]"
+                className="group flex items-center gap-2 font-display text-lg sm:text-xl font-bold tracking-tight text-white transition-transform duration-300 hover:scale-[1.02]"
               >
-                <span className="h-2.5 w-2.5 rounded-full bg-[#e11d48] shadow-[0_0_10px_rgba(225,29,72,0.6)]" />
-                <span className="tracking-tight">Yasmeen Almira</span>
-                <span className="font-mono-code text-[11px] text-[#e11d48] font-bold opacity-85 group-hover:opacity-100 transition-opacity">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#fb7185] shadow-[0_0_10px_rgba(251,113,133,0.8)]" />
+                <span className="tracking-tight text-white">Yasmeen Almira</span>
+                <span className="font-mono-code text-[11px] text-[#fda4af] font-bold opacity-90 group-hover:opacity-100 transition-opacity">
                   // DEVREL
                 </span>
               </a>
 
               {/* RADAR STATUS BADGE */}
-              <div className="hidden xl:flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-300/60 px-3 py-1 text-[10px] font-mono-code font-bold tracking-wider text-emerald-800">
+              <div className="hidden xl:flex items-center gap-2 rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3 py-1 text-[10px] font-mono-code font-bold tracking-wider text-emerald-300">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
                 </span>
                 <span>OPEN_TO_WORK</span>
               </div>
             </div>
 
             {/* DESKTOP NAV LINKS */}
-            <div className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-[#2b1810]/[0.05] p-1 rounded-xl border border-[#2b1810]/10">
+            <div className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-black/20 p-1 rounded-xl border border-white/10">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1);
                 return (
@@ -91,8 +91,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`relative px-3.5 py-1.5 text-[11px] font-bold tracking-wider uppercase transition-all duration-200 rounded-lg ${
                       isActive
-                        ? "text-[#fce7f3] bg-[#2b1810] shadow-sm"
-                        : "text-[#3a221c]/75 hover:text-[#2b1810] hover:bg-white/60"
+                        ? "text-[#25120f] bg-[#fda4af] font-extrabold shadow-sm"
+                        : "text-white/85 hover:text-white hover:bg-white/15"
                     }`}
                   >
                     {link.name}
@@ -106,7 +106,7 @@ export default function Navbar() {
               {/* CONTACT CTA */}
               <a
                 href="#contact"
-                className="relative inline-flex items-center gap-2 rounded-xl bg-[#2b1810] text-[#fce7f3] px-4 sm:px-5 py-2 text-xs font-bold uppercase tracking-wider shadow-md transition-all duration-300 hover:bg-[#e11d48] hover:text-white hover:shadow-lg hover:scale-[1.02]"
+                className="relative inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#fb7185] to-[#f43f5e] text-[#25120f] px-4 sm:px-5 py-2 text-xs font-extrabold uppercase tracking-wider shadow-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(251,113,133,0.6)] hover:scale-[1.02]"
               >
                 <span>Initiate Contact</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -115,7 +115,7 @@ export default function Navbar() {
               {/* MOBILE MENU TOGGLE */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-xl border border-[#2b1810]/15 text-[#2b1810] hover:bg-white/60 focus:outline-none"
+                className="md:hidden p-2 rounded-xl border border-white/20 text-white hover:bg-white/10 focus:outline-none"
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -133,15 +133,15 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-4 top-20 z-40 rounded-3xl bg-white/95 backdrop-blur-2xl border border-[#2b1810]/15 p-6 shadow-2xl md:hidden text-[#2b1810]"
+            className="fixed inset-x-4 top-20 z-40 rounded-3xl bg-[#25120f]/95 backdrop-blur-2xl border border-white/20 p-6 shadow-2xl md:hidden text-white"
           >
-            <div className="flex items-center justify-between pb-4 border-b border-[#2b1810]/10 mb-4">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
                 </span>
-                <span className="text-xs font-mono-code font-bold tracking-wider text-emerald-800">
+                <span className="text-xs font-mono-code font-bold tracking-wider text-emerald-300">
                   STATUS: OPEN_TO_WORK (UTC+7)
                 </span>
               </div>
@@ -153,18 +153,18 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-[#3a221c] hover:text-white hover:bg-[#2b1810] transition-all flex items-center justify-between"
+                  className="px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white/90 hover:text-[#25120f] hover:bg-[#fda4af] transition-all flex items-center justify-between"
                 >
                   <span>{link.name}</span>
-                  <ArrowUpRight className="h-4 w-4 text-[#e11d48]" />
+                  <ArrowUpRight className="h-4 w-4 text-[#fb7185]" />
                 </a>
               ))}
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#2b1810]/10 flex flex-col gap-3">
+            <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
               <a
                 href="mailto:yasmeenalmira9@gmail.com"
-                className="w-full text-center py-3.5 rounded-xl bg-[#2b1810] text-[#fce7f3] font-bold text-xs uppercase tracking-wider shadow-md hover:bg-[#e11d48] hover:text-white transition-all"
+                className="w-full text-center py-3.5 rounded-xl bg-gradient-to-r from-[#fb7185] to-[#f43f5e] text-[#25120f] font-extrabold text-xs uppercase tracking-wider shadow-lg hover:shadow-rose-500/50 transition-all"
               >
                 Send Direct Transmission
               </a>

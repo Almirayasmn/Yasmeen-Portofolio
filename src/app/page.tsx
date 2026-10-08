@@ -14,91 +14,91 @@ import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col relative text-[#2b1810] bg-[#fdf2f8] selection:bg-[#2b1810] selection:text-[#fce7f3] overflow-x-hidden">
+    <div className="min-h-screen flex flex-col relative text-white selection:bg-[#fb7185] selection:text-[#2b1810] overflow-x-hidden">
       
       {/* ========================================================================= */}
-      {/* 100% SEAMLESS CONTINUOUS ANIMATED PASTEL PINK & CREAM GRADIENT BACKGROUND */}
+      {/* 100% SEAMLESS CONTINUOUS ANIMATED PINK & CHOCOLATE GRADIENT BACKGROUND */}
       {/* ========================================================================= */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         
-        {/* Continuous Master Vertical Gradient (Pastel Blush -> Rose Pink -> Cream Peach -> Soft Blossom) */}
+        {/* Continuous Master Vertical Gradient (Deep Chocolate -> Warm Pink -> Blossom -> Chocolate) */}
         <div 
           className="absolute inset-0 w-full h-full"
           style={{
-            background: "linear-gradient(180deg, #fdf2f8 0%, #fce7f3 18%, #fbcfe8 35%, #ffd6e0 52%, #fef3c7 70%, #fce7f3 86%, #fdf2f8 100%)",
+            background: "linear-gradient(180deg, #321c18 0%, #4a2722 10%, #7d3346 22%, #d96282 34%, #f896ab 44%, #fda4af 52%, #e2718e 62%, #7a2f42 74%, #3d201c 86%, #25120f 100%)",
           }}
         />
 
-        {/* DYNAMIC FLOATING ANIMATED PASTEL LIGHT ORBS */}
-        {/* Orb 1: Sweet Strawberry & Fanta Glow (Hero Area) */}
+        {/* DYNAMIC FLOATING ANIMATED PINK & CHOCOLATE LIGHT ORBS */}
+        {/* Orb 1: Vibrant Hot Pink & Fanta Glow (Hero Area) */}
         <motion.div
           animate={{
-            x: [0, 70, -40, 0],
-            y: [0, -60, 40, 0],
-            scale: [1, 1.2, 0.95, 1],
+            x: [0, 80, -50, 0],
+            y: [0, -70, 40, 0],
+            scale: [1, 1.25, 0.95, 1],
           }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-24 left-[12%] h-[600px] w-[600px] rounded-full bg-gradient-to-br from-[#fb7185]/35 via-[#f472b6]/25 to-transparent blur-[130px]"
+          className="absolute -top-20 left-[10%] h-[650px] w-[650px] rounded-full bg-gradient-to-br from-[#fb7185]/45 via-[#f43f5e]/30 to-transparent blur-[140px]"
         />
 
-        {/* Orb 2: Warm Peachy Cream Aura (About Area) */}
+        {/* Orb 2: Deep Chocolate & Berry Shadow (About Area) */}
         <motion.div
           animate={{
-            x: [0, -80, 50, 0],
-            y: [0, 70, -50, 0],
-            scale: [1, 1.25, 0.9, 1],
+            x: [0, -90, 60, 0],
+            y: [0, 80, -60, 0],
+            scale: [1, 1.3, 0.9, 1],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[18%] -right-32 h-[700px] w-[700px] rounded-full bg-gradient-to-br from-[#fed7aa]/50 via-[#fbcfe8]/40 to-transparent blur-[150px]"
+          className="absolute top-[18%] -right-36 h-[750px] w-[750px] rounded-full bg-gradient-to-br from-[#321c18]/60 via-[#f472b6]/30 to-transparent blur-[160px]"
         />
 
-        {/* Orb 3: Luminous Blossom Pink (Experience & What I Do) */}
+        {/* Orb 3: Luminous Sweet Rose Pink (Experience & What I Do) */}
         <motion.div
           animate={{
-            x: [0, 60, -60, 0],
-            y: [0, -50, 60, 0],
+            x: [0, 70, -70, 0],
+            y: [0, -50, 70, 0],
             scale: [1, 1.2, 1],
           }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[38%] -left-36 h-[750px] w-[750px] rounded-full bg-gradient-to-br from-[#f472b6]/35 via-[#fda4af]/30 to-transparent blur-[160px]"
+          className="absolute top-[38%] -left-40 h-[800px] w-[800px] rounded-full bg-gradient-to-br from-[#fda4af]/45 via-[#fb7185]/35 to-transparent blur-[160px]"
         />
 
-        {/* Orb 4: Warm Custard & Rose Twilight (Projects & Stack) */}
+        {/* Orb 4: Rich Mocha Chocolate & Rose Twilight (Projects & Stack) */}
         <motion.div
           animate={{
-            x: [0, -60, 40, 0],
-            y: [0, 50, -40, 0],
-            scale: [1, 1.2, 0.95, 1],
+            x: [0, -70, 50, 0],
+            y: [0, 60, -50, 0],
+            scale: [1, 1.25, 0.9, 1],
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[60%] right-[8%] h-[700px] w-[700px] rounded-full bg-gradient-to-br from-[#fed7aa]/45 via-[#fbcfe8]/35 to-transparent blur-[150px]"
+          className="absolute top-[60%] right-[5%] h-[750px] w-[750px] rounded-full bg-gradient-to-br from-[#fb7185]/40 via-[#321c18]/50 to-transparent blur-[160px]"
         />
 
-        {/* Orb 5: Soft Sunset Rose (Values & Contact) */}
+        {/* Orb 5: Radiant Pink Sunset Glow (Values & Contact) */}
         <motion.div
           animate={{
-            x: [0, 50, -40, 0],
-            y: [0, -40, 40, 0],
+            x: [0, 60, -50, 0],
+            y: [0, -50, 50, 0],
             scale: [1, 1.15, 1],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-5%] left-[25%] h-[650px] w-[650px] rounded-full bg-gradient-to-br from-[#fb7185]/35 via-[#fda4af]/30 to-transparent blur-[140px]"
+          className="absolute bottom-[-5%] left-[20%] h-[700px] w-[700px] rounded-full bg-gradient-to-br from-[#fb7185]/45 via-[#f43f5e]/30 to-transparent blur-[150px]"
         />
 
-        {/* Subtle Fine Grid Texture */}
+        {/* Subtle Cyber-Editorial Grid Texture */}
         <div 
-          className="absolute inset-0 opacity-[0.2]"
+          className="absolute inset-0 opacity-[0.14]"
           style={{
-            backgroundImage: "linear-gradient(rgba(43, 24, 16, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(43, 24, 16, 0.08) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
 
-        {/* Subtle Soft Stardust Dots */}
+        {/* Subtle Stardust Dots */}
         <div 
-          className="absolute inset-0 opacity-[0.25]"
+          className="absolute inset-0 opacity-[0.18]"
           style={{
-            backgroundImage: "radial-gradient(rgba(43, 24, 16, 0.12) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px)",
             backgroundSize: "30px 30px",
           }}
         />

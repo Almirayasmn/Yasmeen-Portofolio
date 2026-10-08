@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Layout, Code2, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { Users, Layout, Code2, ShieldCheck } from "lucide-react";
 
 const capabilities = [
   {
@@ -68,23 +68,23 @@ const capabilities = [
 
 export default function WhatIDo() {
   return (
-    <section id="what-i-do" className="relative py-28 md:py-36 text-[#2b1810]">
+    <section id="what-i-do" className="relative py-28 md:py-36 text-white">
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
         {/* HUD SECTION HEADER */}
-        <div className="mb-14 flex items-center justify-between pb-6 border-b border-[#2b1810]/10">
+        <div className="mb-14 flex items-center justify-between pb-6 border-b border-white/15">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono-code text-xs font-bold tracking-wider text-[#e11d48]"
+            className="flex items-center gap-3 font-mono-code text-xs font-bold tracking-wider text-[#fda4af]"
           >
-            <span className="h-2 w-2 rounded-full bg-[#e11d48] shadow-[0_0_8px_rgba(225,29,72,0.6)]" />
+            <span className="h-2 w-2 rounded-full bg-[#fb7185] shadow-[0_0_8px_rgba(251,113,133,0.8)]" />
             <span>[ 03 // CAPABILITIES & DELIVERABLES ]</span>
           </motion.div>
 
-          <span className="text-xs font-mono-code tracking-wider text-[#3a221c]/60 font-medium">
+          <span className="text-xs font-mono-code tracking-wider text-white/60 font-medium">
             SYSTEM // VALUE_ADD
           </span>
         </div>
@@ -96,10 +96,10 @@ export default function WhatIDo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-[#2b1810]"
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white"
           >
             Capabilities tailored for{" "}
-            <span className="text-[#e11d48] italic">modern teams.</span>
+            <span className="text-[#fda4af] italic">modern teams.</span>
           </motion.h2>
 
           <motion.p
@@ -107,7 +107,7 @@ export default function WhatIDo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm sm:text-base leading-relaxed text-[#3a221c]/85 font-medium"
+            className="text-sm sm:text-base leading-relaxed text-white/85 font-normal"
           >
             A high-leverage blend of developer relations, product design, engineering, and operational rigor — delivering value from day one.
           </motion.p>
@@ -125,35 +125,35 @@ export default function WhatIDo() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: index * 0.12 }}
                 whileHover={{ y: -6 }}
-                className="group relative rounded-3xl bg-white/80 backdrop-blur-2xl border border-[#2b1810]/15 p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:border-[#e11d48]/50 hover:bg-white/95 hover:shadow-[0_20px_45px_rgba(225,29,72,0.1)]"
+                className="group relative rounded-3xl bg-black/25 backdrop-blur-2xl border border-white/20 p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:border-[#fb7185]/60 hover:bg-black/35 hover:shadow-[0_0_40px_rgba(251,113,133,0.25)]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono-code text-xs font-bold text-[#e11d48] bg-[#fce7f3] border border-[#e11d48]/25 px-3.5 py-1 rounded-full">
+                    <span className="font-mono-code text-xs font-bold text-[#fda4af] bg-[#fb7185]/20 border border-[#fb7185]/30 px-3.5 py-1 rounded-full">
                       {item.number}
                     </span>
-                    <div className="p-3 rounded-2xl bg-[#fdf2f8] border border-[#2b1810]/10 text-[#2b1810] group-hover:bg-[#e11d48] group-hover:text-white transition-colors">
+                    <div className="p-3 rounded-2xl bg-white/10 border border-white/15 text-white group-hover:bg-[#fb7185] group-hover:text-[#25120f] transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
 
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#2b1810] leading-tight">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 text-xs sm:text-sm text-[#3a221c]/80 leading-relaxed font-medium">
+                  <p className="mt-4 text-xs sm:text-sm text-white/80 leading-relaxed font-normal">
                     {item.description}
                   </p>
 
                   {/* DELIVERABLES */}
-                  <div className="mt-6 pt-5 border-t border-[#2b1810]/10">
-                    <p className="text-[11px] font-mono-code uppercase tracking-wider text-[#3a221c]/70 font-bold mb-3">
+                  <div className="mt-6 pt-5 border-t border-white/15">
+                    <p className="text-[11px] font-mono-code uppercase tracking-wider text-white/70 font-bold mb-3">
                       KEY DELIVERABLES
                     </p>
                     <ul className="space-y-2">
                       {item.deliverables.map((deliv) => (
-                        <li key={deliv} className="flex items-start gap-2 text-xs text-[#2b1810] font-medium">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#e11d48] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(225,29,72,0.6)]" />
+                        <li key={deliv} className="flex items-start gap-2 text-xs text-white/90 font-medium">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#fb7185] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(251,113,133,0.8)]" />
                           <span>{deliv}</span>
                         </li>
                       ))}
@@ -162,11 +162,11 @@ export default function WhatIDo() {
                 </div>
 
                 {/* TAGS */}
-                <div className="mt-8 pt-6 border-t border-[#2b1810]/10 flex flex-wrap gap-2">
+                <div className="mt-8 pt-6 border-t border-white/15 flex flex-wrap gap-2">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-xl bg-[#fdf2f8] border border-[#2b1810]/10 px-3 py-1 text-xs font-mono-code text-[#2b1810] font-semibold"
+                      className="rounded-xl bg-white/10 border border-white/15 px-3 py-1 text-xs font-mono-code text-white font-semibold"
                     >
                       {tag}
                     </span>

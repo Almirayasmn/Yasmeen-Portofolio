@@ -181,7 +181,7 @@ export default function Hero() {
               {/* PHOTO CONTAINER */}
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border-4 border-white/90 bg-[#25120f] shadow-2xl">
                 <Image
-                  src="/images/profile/yasmeenal.jpeg"
+                  src="/images/profile/yasmeen_portrait.jpg"
                   alt="Yasmeen Almira — Developer Relations & UI/UX Designer"
                   fill
                   priority

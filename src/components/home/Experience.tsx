@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, Building, CheckCircle, Sparkles, Terminal, Activity } from "lucide-react";
+import { Briefcase, Calendar, Building, CheckCircle, Sparkles } from "lucide-react";
 
 const experiences = [
   {
@@ -59,31 +59,31 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-28 md:py-36">
+    <section id="experience" className="relative py-28 md:py-36 text-[#2b1810]">
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
         {/* HUD SECTION HEADER */}
-        <div className="mb-14 flex items-center justify-between pb-6 border-b border-white/[0.08]">
+        <div className="mb-14 flex items-center justify-between pb-6 border-b border-[#2b1810]/10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono-code text-xs font-semibold tracking-wider text-rose-400"
+            className="flex items-center gap-3 font-mono-code text-xs font-bold tracking-wider text-[#e11d48]"
           >
-            <span className="h-2 w-2 rounded-full bg-rose-500 shadow-[0_0_8px_#f43f5e]" />
+            <span className="h-2 w-2 rounded-full bg-[#e11d48] shadow-[0_0_8px_rgba(225,29,72,0.6)]" />
             <span>[ 02 // PROFESSIONAL TIMELINE ]</span>
           </motion.div>
 
           <div className="flex items-center gap-3">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-xs font-mono-code font-semibold tracking-wider text-emerald-300">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-300/60 px-3 py-1 text-xs font-mono-code font-bold tracking-wider text-emerald-800">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
               <span>STATUS: OPEN_TO_WORK</span>
             </div>
-            <span className="hidden sm:inline font-mono-code text-xs tracking-wider text-slate-500">
+            <span className="hidden sm:inline font-mono-code text-xs tracking-wider text-[#3a221c]/60 font-medium">
               TRACK_RECORD
             </span>
           </div>
@@ -97,10 +97,10 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white"
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-[#2b1810]"
             >
               Proven track record of{" "}
-              <span className="text-gradient-neon">execution & impact.</span>
+              <span className="text-[#e11d48] italic">execution & impact.</span>
             </motion.h2>
           </div>
 
@@ -109,7 +109,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm sm:text-base leading-relaxed text-slate-400"
+            className="text-sm sm:text-base leading-relaxed text-[#3a221c]/85 font-medium"
           >
             Demonstrated experience across government education programs, high-growth Web3 developer ecosystems, and cross-functional teams with high accountability and remote discipline.
           </motion.p>
@@ -124,21 +124,21 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: index * 0.12 }}
-              className="group relative rounded-3xl bg-black/20 border border-white/15 p-6 sm:p-9 backdrop-blur-2xl transition-all duration-300 hover:border-rose-400/50 hover:bg-black/30 hover:shadow-[0_0_40px_rgba(244,63,94,0.2)]"
+              className="group relative rounded-3xl bg-white/80 border border-[#2b1810]/15 p-6 sm:p-9 backdrop-blur-2xl transition-all duration-300 hover:border-[#e11d48]/50 hover:bg-white/95 hover:shadow-[0_20px_45px_rgba(225,29,72,0.1)]"
             >
               {/* TOP META ROW */}
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5 mb-6">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#2b1810]/10 pb-5 mb-6">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="flex items-center gap-1.5 text-xs font-mono-code font-bold text-rose-300 bg-rose-500/20 border border-rose-500/30 px-3.5 py-1 rounded-full">
-                    <Calendar className="h-3 w-3 text-rose-300" />
+                  <span className="flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#e11d48] bg-[#fce7f3] border border-[#e11d48]/25 px-3.5 py-1 rounded-full">
+                    <Calendar className="h-3 w-3 text-[#e11d48]" />
                     {exp.year}
                   </span>
-                  <span className="text-xs font-mono-code text-rose-200/80">
+                  <span className="text-xs font-mono-code text-[#3a221c]/70 font-semibold">
                     // {exp.period}
                   </span>
                 </div>
 
-                <span className="rounded-full border border-white/15 bg-white/10 px-3.5 py-1 text-[11px] font-mono-code uppercase tracking-wider text-white font-medium">
+                <span className="rounded-full border border-[#2b1810]/15 bg-[#fdf2f8] px-3.5 py-1 text-[11px] font-mono-code uppercase tracking-wider text-[#2b1810] font-bold">
                   {exp.type}
                 </span>
               </div>
@@ -146,22 +146,22 @@ export default function Experience() {
               {/* ROLE TITLE & COMPANY */}
               <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
                 <div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#2b1810] leading-tight">
                     {exp.role}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm font-mono-code font-semibold uppercase tracking-wider text-rose-300">
+                  <p className="mt-2 text-xs sm:text-sm font-mono-code font-bold uppercase tracking-wider text-[#e11d48]">
                     {exp.company}
                   </p>
 
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/80">
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#3a221c]/85 font-medium">
                     {exp.description}
                   </p>
 
                   {/* BULLET POINTS */}
                   <div className="mt-6 space-y-2.5">
                     {exp.points.map((point) => (
-                      <div key={point} className="flex items-start gap-3 text-xs sm:text-sm text-white/75 leading-relaxed">
-                        <CheckCircle className="h-4 w-4 text-rose-400 mt-0.5 shrink-0" />
+                      <div key={point} className="flex items-start gap-3 text-xs sm:text-sm text-[#2b1810]/85 font-medium leading-relaxed">
+                        <CheckCircle className="h-4 w-4 text-[#e11d48] mt-0.5 shrink-0" />
                         <span>{point}</span>
                       </div>
                     ))}
@@ -169,16 +169,16 @@ export default function Experience() {
                 </div>
 
                 {/* SKILLS & REMOTE ENVIRONMENT */}
-                <div className="lg:border-l lg:border-white/10 lg:pl-8 flex flex-col justify-between">
+                <div className="lg:border-l lg:border-[#2b1810]/10 lg:pl-8 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-mono-code uppercase tracking-wider text-rose-200/80 block mb-3">
+                    <span className="text-xs font-mono-code uppercase tracking-wider text-[#3a221c]/70 font-bold block mb-3">
                       TOOLS & PROTOCOLS
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="rounded-xl bg-white/10 border border-white/15 px-3 py-1 text-xs font-mono-code text-white hover:border-rose-400/50 transition-colors"
+                          className="rounded-xl bg-[#fdf2f8] border border-[#2b1810]/10 px-3 py-1 text-xs font-mono-code text-[#2b1810] font-semibold"
                         >
                           {skill}
                         </span>
@@ -186,11 +186,11 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-white/10">
-                    <span className="text-xs font-mono-code uppercase tracking-wider text-rose-200/60 block">
+                  <div className="mt-8 pt-6 border-t border-[#2b1810]/10">
+                    <span className="text-xs font-mono-code uppercase tracking-wider text-[#3a221c]/60 font-bold block">
                       ENVIRONMENT
                     </span>
-                    <p className="text-xs font-mono-code text-white mt-1">
+                    <p className="text-xs font-mono-code text-[#2b1810] font-bold mt-1">
                       {exp.location}
                     </p>
                   </div>

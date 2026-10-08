@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Sparkles, MapPin, Clock, Terminal, Activity } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Sparkles, MapPin, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -39,21 +39,21 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-between gap-4 pb-8"
         >
           {/* SYSTEM ROLE BADGE */}
-          <div className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.04] backdrop-blur-xl px-4 py-1.5 border border-white/[0.08] shadow-sm text-xs font-mono-code">
-            <span className="text-rose-400">SYS::ID</span>
-            <span className="text-slate-400">/</span>
-            <span className="text-slate-200 font-semibold tracking-wider uppercase">DEVREL_OPS & UIUX</span>
+          <div className="inline-flex items-center gap-2.5 rounded-full bg-white/70 backdrop-blur-xl px-4 py-1.5 border border-[#2b1810]/15 shadow-sm text-xs font-mono-code text-[#2b1810]">
+            <span className="text-[#e11d48] font-bold">SYS::ID</span>
+            <span className="text-[#2b1810]/40">/</span>
+            <span className="font-bold tracking-wider uppercase">DEVREL_OPS & UIUX</span>
           </div>
 
           {/* TIMEZONE & LIVE TELEMETRY */}
-          <div className="flex items-center gap-4 text-xs font-mono-code tracking-wider text-slate-400">
-            <span className="hidden sm:flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5 text-rose-400" />
+          <div className="flex items-center gap-4 text-xs font-mono-code tracking-wider text-[#3a221c]/80">
+            <span className="hidden sm:flex items-center gap-1.5 font-medium">
+              <MapPin className="h-3.5 w-3.5 text-[#e11d48]" />
               JAKARTA [6.2088° S, 106.8456° E]
             </span>
             {time && (
-              <span className="flex items-center gap-1.5 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-full text-slate-200">
-                <Clock className="h-3 w-3 text-cyan-400" />
+              <span className="flex items-center gap-1.5 bg-white/80 border border-[#2b1810]/15 px-3 py-1 rounded-full text-[#2b1810] font-bold shadow-xs">
+                <Clock className="h-3 w-3 text-[#e11d48]" />
                 {time} WIB
               </span>
             )}
@@ -69,19 +69,19 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-mono-code mb-6"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e11d48]/10 border border-[#e11d48]/25 text-[#be123c] text-xs font-mono-code font-bold mb-6"
             >
-              <Sparkles className="h-3.5 w-3.5 text-rose-400" />
+              <Sparkles className="h-3.5 w-3.5 text-[#e11d48]" />
               <span>COMMUNITY ADVOCACY × TECHNICAL OPERATIONS × DESIGN</span>
             </motion.div>
 
-            {/* BIG FUTURISTIC HEADLINE */}
+            {/* BIG HIGH-CONTRAST HEADLINE */}
             <div className="relative">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="font-display text-[15vw] sm:text-[12vw] lg:text-[7.8rem] font-extrabold leading-[0.85] tracking-[-0.05em] text-white"
+                className="font-display text-[15vw] sm:text-[12vw] lg:text-[7.8rem] font-extrabold leading-[0.85] tracking-[-0.05em] text-[#2b1810]"
               >
                 Yasmeen
               </motion.h1>
@@ -90,9 +90,9 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="font-display text-[14.5vw] sm:text-[11.5vw] lg:text-[7.4rem] font-extrabold leading-[0.85] tracking-[-0.05em] text-gradient-neon ml-2 sm:ml-6 lg:ml-10"
+                className="font-display text-[14.5vw] sm:text-[11.5vw] lg:text-[7.4rem] font-extrabold leading-[0.85] tracking-[-0.05em] text-[#e11d48] ml-2 sm:ml-6 lg:ml-10 italic"
               >
-                Almira<span className="text-cyan-400">.</span>
+                Almira<span className="text-[#2b1810] not-italic">.</span>
               </motion.h1>
             </div>
 
@@ -103,10 +103,10 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-8 max-w-xl"
             >
-              <p className="font-display text-xl sm:text-2xl text-slate-200 font-semibold tracking-tight">
+              <p className="font-display text-xl sm:text-2xl text-[#2b1810] font-bold tracking-tight">
                 Architecting Developer Ecosystems & Intuitive Digital Experiences.
               </p>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-400">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#3a221c]/85 font-medium">
                 I help fast-paced teams build developer engagement, craft user-centered interfaces, and coordinate complex technical operations with strong async communication.
               </p>
             </motion.div>
@@ -120,7 +120,7 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 text-white px-7 py-4 text-xs font-bold uppercase tracking-wider shadow-[0_0_25px_rgba(244,63,94,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(244,63,94,0.6)] hover:scale-[1.02]"
+                className="group relative inline-flex items-center gap-2.5 rounded-2xl bg-[#2b1810] text-[#fce7f3] px-7 py-4 text-xs font-bold uppercase tracking-wider shadow-lg transition-all duration-300 hover:bg-[#e11d48] hover:text-white hover:scale-[1.02]"
               >
                 <span>Explore Featured Work</span>
                 <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
@@ -128,10 +128,10 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2.5 rounded-xl border border-white/15 bg-white/[0.03] backdrop-blur-xl text-slate-200 px-7 py-4 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:border-rose-400/50 hover:bg-white/[0.08] hover:text-white"
+                className="inline-flex items-center gap-2.5 rounded-2xl border border-[#2b1810]/20 bg-white/80 backdrop-blur-xl text-[#2b1810] px-7 py-4 text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#2b1810] hover:text-[#fce7f3]"
               >
                 <span>Connect / Hire</span>
-                <ArrowUpRight className="h-3.5 w-3.5 text-rose-400" />
+                <ArrowUpRight className="h-3.5 w-3.5 text-[#e11d48]" />
               </a>
             </motion.div>
 
@@ -150,7 +150,7 @@ export default function Hero() {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-lg bg-white/[0.03] border border-white/[0.07] px-3.5 py-1.5 text-[11px] font-mono-code text-slate-300 tracking-wide"
+                  className="rounded-xl bg-white/75 border border-[#2b1810]/15 px-3.5 py-1.5 text-[11px] font-mono-code font-semibold text-[#2b1810] tracking-wide shadow-xs"
                 >
                   {skill}
                 </span>
@@ -158,7 +158,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: FUTURISTIC PORTRAIT HOLO-FRAME */}
+          {/* RIGHT: PORTRAIT IN CLEAN LUXE FRAME */}
           <div className="relative flex justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
@@ -166,20 +166,20 @@ export default function Hero() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]"
             >
-              {/* CYBER FRAME ACCENTS */}
-              <div className="pointer-events-none absolute -inset-3 rounded-3xl border border-rose-500/20 shadow-[0_0_50px_rgba(244,63,94,0.15)]" />
+              {/* ACCENT BORDER FRAME */}
+              <div className="pointer-events-none absolute -inset-3 rounded-3xl border border-[#e11d48]/25 shadow-[0_15px_45px_rgba(225,29,72,0.12)]" />
               
-              {/* ROTATING RADIAL LASER RING */}
-              <div className="pointer-events-none absolute -inset-8 rounded-full border border-dashed border-cyan-400/20 animate-[spin_50s_linear_infinite]" />
+              {/* ROTATING RADIAL RING */}
+              <div className="pointer-events-none absolute -inset-8 rounded-full border border-dashed border-[#e11d48]/20 animate-[spin_50s_linear_infinite]" />
 
               {/* CORNER BRACKETS */}
-              <div className="pointer-events-none absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-rose-400" />
-              <div className="pointer-events-none absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-rose-400" />
-              <div className="pointer-events-none absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-rose-400" />
-              <div className="pointer-events-none absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-rose-400" />
+              <div className="pointer-events-none absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-[#e11d48]" />
+              <div className="pointer-events-none absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-[#e11d48]" />
+              <div className="pointer-events-none absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-[#e11d48]" />
+              <div className="pointer-events-none absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-[#e11d48]" />
 
               {/* PHOTO CONTAINER */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 backdrop-blur-md shadow-2xl">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border-4 border-white bg-white shadow-2xl">
                 <Image
                   src="/images/profile/yasmeenal.jpeg"
                   alt="Yasmeen Almira — Developer Relations & UI/UX Designer"
@@ -188,9 +188,8 @@ export default function Hero() {
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
 
-                {/* CYBER GRADIENT OVERLAYS */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07060b] via-transparent to-transparent opacity-80 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
+                {/* SOFT WARM OVERLAYS */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2b1810]/40 via-transparent to-transparent opacity-60 pointer-events-none" />
               </div>
             </motion.div>
           </div>
@@ -198,18 +197,18 @@ export default function Hero() {
         </div>
 
         {/* BOTTOM TELEMETRY FOOTNOTE */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-code tracking-wider text-slate-400 border-t border-white/10">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-code font-medium tracking-wider text-[#3a221c]/70 border-t border-[#2b1810]/10">
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-[#e11d48] shadow-[0_0_8px_rgba(225,29,72,0.6)] animate-pulse" />
             <span>JAKARTA, ID · 6.2088° S, 106.8456° E · OPEN TO REMOTE WORLDWIDE</span>
           </div>
 
           <a
             href="#about"
-            className="group flex items-center gap-2 text-slate-300 hover:text-rose-300 transition-colors"
+            className="group flex items-center gap-2 text-[#2b1810] hover:text-[#e11d48] font-bold transition-colors"
           >
             <span>DISCOVER PROFILE</span>
-            <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-1 text-rose-400" />
+            <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-1 text-[#e11d48]" />
           </a>
         </div>
 

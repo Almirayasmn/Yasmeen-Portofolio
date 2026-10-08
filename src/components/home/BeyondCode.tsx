@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Heart, Mic, Laptop, Users, Terminal, Cpu } from "lucide-react";
+import { Laptop, Users, Mic } from "lucide-react";
 
 const pillars = [
   {
@@ -37,27 +37,27 @@ export default function BeyondCode() {
   return (
     <section
       id="beyond-code"
-      className="relative py-28 md:py-36 text-cyber-text"
+      className="relative py-28 md:py-36 text-[#2b1810]"
     >
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
         {/* SECTION HUD HEADER */}
-        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border/60 pb-6">
+        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-[#2b1810]/10 pb-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-fanta"
+            className="flex items-center gap-3 font-mono-code text-xs font-bold uppercase tracking-widest text-[#e11d48]"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fanta opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-fanta"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e11d48] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e11d48]"></span>
             </span>
             <span>// 06_PHILOSOPHY_&_BEYOND_CODE</span>
           </motion.div>
 
-          <span className="font-mono text-xs uppercase tracking-wider text-cyber-muted">
+          <span className="font-mono-code text-xs uppercase tracking-wider text-[#3a221c]/60 font-semibold">
             HUMAN_IN_THE_LOOP: [ 100% ]
           </span>
         </div>
@@ -69,11 +69,11 @@ export default function BeyondCode() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#2b1810] leading-[1.05]"
           >
             I don&apos;t just engineer systems.
             <br />
-            <span className="bg-gradient-to-r from-fanta via-neon-rose to-neon-cyan bg-clip-text text-transparent">
+            <span className="text-[#e11d48] italic">
               I connect humans, code, and vision.
             </span>
           </motion.h2>
@@ -83,34 +83,34 @@ export default function BeyondCode() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-6 max-w-2xl text-sm sm:text-base leading-relaxed text-cyber-muted"
+            className="mt-6 max-w-2xl text-sm sm:text-base leading-relaxed text-[#3a221c]/85 font-medium"
           >
             High-leverage remote collaboration demands more than raw code — it requires clear articulation, proactive empathy, aesthetic taste, and an artistic mindset that keeps teams motivated and aligned.
           </motion.p>
         </div>
 
-        {/* FUTURISTIC CYBER MARQUEE STRIP */}
-        <div className="relative overflow-hidden py-5 my-12 rounded-2xl bg-cyber-panel/40 border border-cyber-border/70 backdrop-blur-xl">
+        {/* ANIMATED PASTEL MARQUEE STRIP */}
+        <div className="relative overflow-hidden py-5 my-12 rounded-3xl bg-white/80 border border-[#2b1810]/15 backdrop-blur-xl shadow-sm">
           <motion.div
             initial={{ x: "-50%" }}
             animate={{ x: "0%" }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="flex items-center gap-10 whitespace-nowrap font-mono text-sm sm:text-base tracking-widest text-cyber-muted uppercase"
+            className="flex items-center gap-10 whitespace-nowrap font-mono-code text-sm sm:text-base tracking-widest text-[#2b1810] uppercase font-bold"
           >
-            <span className="text-fanta font-bold">SYSTEM_EXPANSION</span>
-            <span className="text-neon-cyan">✦</span>
+            <span className="text-[#e11d48]">SYSTEM_EXPANSION</span>
+            <span className="text-[#e11d48]">✦</span>
             <span>TECHNOLOGY × PEOPLE × CREATIVITY</span>
-            <span className="text-neon-purple">✦</span>
-            <span className="text-white font-bold">DEVREL & ADVOCACY</span>
-            <span className="text-fanta">✦</span>
+            <span className="text-[#e11d48]">✦</span>
+            <span className="text-[#2b1810]">DEVREL & ADVOCACY</span>
+            <span className="text-[#e11d48]">✦</span>
             <span>ASYNC PRECISION</span>
-            <span className="text-neon-cyan">✦</span>
-            <span className="text-fanta font-bold">SYSTEM_EXPANSION</span>
-            <span className="text-neon-cyan">✦</span>
+            <span className="text-[#e11d48]">✦</span>
+            <span className="text-[#e11d48]">SYSTEM_EXPANSION</span>
+            <span className="text-[#e11d48]">✦</span>
             <span>TECHNOLOGY × PEOPLE × CREATIVITY</span>
-            <span className="text-neon-purple">✦</span>
-            <span className="text-white font-bold">DEVREL & ADVOCACY</span>
-            <span className="text-fanta">✦</span>
+            <span className="text-[#e11d48]">✦</span>
+            <span className="text-[#2b1810]">DEVREL & ADVOCACY</span>
+            <span className="text-[#e11d48]">✦</span>
             <span>ASYNC PRECISION</span>
           </motion.div>
         </div>
@@ -126,35 +126,35 @@ export default function BeyondCode() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="group relative rounded-3xl bg-black/20 border border-white/15 p-8 backdrop-blur-2xl flex flex-col justify-between hover:border-rose-400/50 hover:bg-black/30 transition-all duration-400 shadow-[0_15px_40px_rgba(0,0,0,0.25)]"
+                className="group relative rounded-3xl bg-white/80 border border-[#2b1810]/15 p-8 backdrop-blur-2xl flex flex-col justify-between hover:border-[#e11d48]/50 hover:bg-white/95 transition-all duration-300 shadow-[0_15px_35px_rgba(43,24,16,0.05)]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-xs font-bold text-rose-300 bg-rose-500/20 border border-rose-500/30 px-3 py-1 rounded-md">
+                    <span className="font-mono-code text-xs font-bold text-[#e11d48] bg-[#fce7f3] border border-[#e11d48]/25 px-3.5 py-1 rounded-full">
                       // {pillar.sysCode}
                     </span>
-                    <div className="p-3 rounded-2xl bg-white/10 border border-white/15 text-white group-hover:text-rose-300 group-hover:border-rose-400/40 transition-colors">
+                    <div className="p-3 rounded-2xl bg-[#fdf2f8] border border-[#2b1810]/10 text-[#2b1810] group-hover:bg-[#e11d48] group-hover:text-white transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
                   </div>
 
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-rose-200">
+                  <p className="font-mono-code text-[10px] font-bold uppercase tracking-wider text-[#e11d48]">
                     {pillar.subtitle}
                   </p>
-                  <h3 className="font-display text-2xl font-bold text-white mt-1.5">
+                  <h3 className="font-display text-2xl font-bold text-[#2b1810] mt-1.5">
                     {pillar.title}
                   </h3>
 
-                  <p className="mt-4 text-xs sm:text-sm text-white/80 leading-relaxed">
+                  <p className="mt-4 text-xs sm:text-sm text-[#3a221c]/80 leading-relaxed font-medium">
                     {pillar.text}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                <div className="mt-8 pt-6 border-t border-[#2b1810]/10 flex flex-wrap gap-2">
                   {pillar.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono rounded-lg bg-white/10 border border-white/15 px-2.5 py-1 text-[10px] text-white/90"
+                      className="font-mono-code rounded-xl bg-[#fdf2f8] border border-[#2b1810]/10 px-2.5 py-1 text-[10px] text-[#2b1810] font-semibold"
                     >
                       {tag}
                     </span>

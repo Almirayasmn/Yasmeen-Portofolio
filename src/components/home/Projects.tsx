@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ExternalLink, Github, Sparkles, Terminal, Cpu, Layers, Radio, Eye } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github, Terminal, Cpu, Radio, Eye } from "lucide-react";
 
 type ProjectCategory = "All" | "Fullstack & AI" | "UI/UX & Product";
 
@@ -101,32 +101,32 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-28 md:py-36 text-cyber-text"
+      className="relative py-28 md:py-36 text-[#2b1810]"
     >
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
         {/* SECTION HUD HEADER */}
-        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border/60 pb-6">
+        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-[#2b1810]/10 pb-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-fanta"
+            className="flex items-center gap-3 font-mono-code text-xs font-bold uppercase tracking-widest text-[#e11d48]"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fanta opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-fanta"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e11d48] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e11d48]"></span>
             </span>
             <span>// 04_SELECTED_PROJECTS_&_SYSTEMS</span>
           </motion.div>
 
-          <div className="flex items-center gap-4 font-mono text-[11px] text-cyber-muted">
+          <div className="flex items-center gap-4 font-mono-code text-xs text-[#3a221c]/70 font-semibold">
             <span className="flex items-center gap-1.5">
-              <Terminal className="h-3.5 w-3.5 text-neon-cyan" />
+              <Terminal className="h-3.5 w-3.5 text-[#e11d48]" />
               <span>FILTER: {activeCategory.toUpperCase()}</span>
             </span>
-            <span className="hidden sm:inline text-cyber-border">|</span>
+            <span className="hidden sm:inline text-[#2b1810]/20">|</span>
             <span className="hidden sm:inline">{projectData.length} CURATED_MODULES</span>
           </div>
         </div>
@@ -139,28 +139,28 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#2b1810] leading-[1.05]"
             >
               Architected systems &{" "}
-              <span className="bg-gradient-to-r from-fanta via-neon-rose to-neon-cyan bg-clip-text text-transparent">
+              <span className="text-[#e11d48] italic">
                 production builds.
               </span>
             </motion.h2>
-            <p className="mt-4 text-sm sm:text-base text-cyber-muted max-w-2xl leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-[#3a221c]/85 max-w-2xl leading-relaxed font-medium">
               From IoT machine-learning predictive pipelines to deployed university innovation platforms — engineered with precision, high performance, and meticulous user experience.
             </p>
           </div>
 
-          {/* FUTURISTIC FILTER TABS */}
-          <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-cyber-panel/60 border border-cyber-border backdrop-blur-xl">
+          {/* FILTER TABS */}
+          <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-white/70 border border-[#2b1810]/15 backdrop-blur-xl">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-mono text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all duration-300 ${
+                className={`font-mono-code text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all duration-300 font-bold ${
                   activeCategory === cat
-                    ? "bg-fanta text-cyber-black font-bold shadow-[0_0_20px_rgba(255,45,117,0.4)]"
-                    : "text-cyber-muted hover:text-white hover:bg-white/5"
+                    ? "bg-[#2b1810] text-[#fce7f3] shadow-md"
+                    : "text-[#3a221c]/70 hover:text-[#2b1810] hover:bg-white/70"
                 }`}
               >
                 {cat}
@@ -179,31 +179,28 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group relative rounded-3xl bg-black/25 border border-white/15 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:border-rose-400/50 transition-all duration-500"
+                className="group relative rounded-3xl bg-white/85 border border-[#2b1810]/15 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 shadow-[0_15px_45px_rgba(43,24,16,0.06)] hover:border-[#e11d48]/50 hover:bg-white/95 transition-all duration-500"
               >
-                {/* AMBIENT CARD GLOW */}
-                <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-fanta/5 via-transparent to-neon-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
                 {/* CORNER ACCENT BRACKETS */}
-                <div className="pointer-events-none absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-fanta/40 rounded-tl-3xl" />
-                <div className="pointer-events-none absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-neon-cyan/40 rounded-tr-3xl" />
-                <div className="pointer-events-none absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-neon-purple/40 rounded-bl-3xl" />
-                <div className="pointer-events-none absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-fanta/40 rounded-br-3xl" />
+                <div className="pointer-events-none absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#e11d48]/40 rounded-tl-3xl" />
+                <div className="pointer-events-none absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#e11d48]/40 rounded-tr-3xl" />
+                <div className="pointer-events-none absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#e11d48]/40 rounded-bl-3xl" />
+                <div className="pointer-events-none absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#e11d48]/40 rounded-br-3xl" />
 
                 {/* PROJECT TOP TELEMETRY BAR */}
-                <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border/60 pb-6 mb-8 font-mono text-xs">
+                <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-[#2b1810]/10 pb-6 mb-8 font-mono-code text-xs">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-fanta/15 border border-fanta/30 text-fanta font-bold tracking-wider">
+                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#fce7f3] border border-[#e11d48]/30 text-[#e11d48] font-bold tracking-wider">
                       <Cpu className="h-3.5 w-3.5" />
                       <span>{project.sysId}</span>
                     </span>
-                    <span className="px-3 py-1 rounded-md bg-cyber-card border border-cyber-border text-cyber-muted uppercase text-[11px] tracking-wider">
+                    <span className="px-3 py-1 rounded-md bg-[#fdf2f8] border border-[#2b1810]/10 text-[#2b1810] uppercase text-[11px] font-bold tracking-wider">
                       {project.categoryLabel}
                     </span>
                   </div>
 
-                  <span className="text-cyber-muted/80">
-                    TIMELINE: <strong className="text-white">{project.year}</strong>
+                  <span className="text-[#3a221c]/70 font-semibold">
+                    TIMELINE: <strong className="text-[#2b1810]">{project.year}</strong>
                   </span>
                 </div>
 
@@ -212,36 +209,36 @@ export default function Projects() {
                   
                   {/* LEFT: SPECS & HIGHLIGHTS */}
                   <div>
-                    <h3 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+                    <h3 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#2b1810] tracking-tight leading-[1.05]">
                       {project.title}
                     </h3>
                     
-                    <p className="mt-2 font-mono text-xs sm:text-sm font-semibold text-fanta tracking-wide">
+                    <p className="mt-2 font-mono-code text-xs sm:text-sm font-bold text-[#e11d48] tracking-wide">
                       {project.tagline}
                     </p>
 
-                    <p className="mt-5 text-sm text-cyber-muted leading-relaxed">
+                    <p className="mt-5 text-sm text-[#3a221c]/85 leading-relaxed font-medium">
                       {project.description}
                     </p>
 
                     {/* TELEMETRY METRICS TABLE */}
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 rounded-2xl bg-cyber-card/60 border border-cyber-border font-mono text-[11px]">
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 rounded-2xl bg-[#fdf2f8] border border-[#2b1810]/10 font-mono-code text-[11px]">
                       {project.telemetry.map((item) => (
-                        <div key={item.label} className="p-2 rounded-lg bg-cyber-black/40 border border-cyber-border/40">
-                          <span className="block text-cyber-muted text-[10px] tracking-wider">{item.label}</span>
-                          <span className="font-bold text-white mt-0.5 block truncate">{item.value}</span>
+                        <div key={item.label} className="p-2.5 rounded-xl bg-white border border-[#2b1810]/10">
+                          <span className="block text-[#3a221c]/60 text-[10px] font-bold tracking-wider">{item.label}</span>
+                          <span className="font-bold text-[#2b1810] mt-0.5 block truncate">{item.value}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* HIGHLIGHTS */}
                     <div className="mt-6 space-y-2.5">
-                      <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-fanta/90">
+                      <p className="font-mono-code text-[11px] font-bold uppercase tracking-widest text-[#e11d48]">
                         // Key Engineering Milestones
                       </p>
                       {project.highlights.map((item) => (
-                        <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-cyber-text">
-                          <span className="h-1.5 w-1.5 rounded-full bg-fanta mt-2 shrink-0 shadow-[0_0_8px_rgba(255,45,117,0.8)]" />
+                        <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2b1810] font-medium">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#e11d48] mt-2 shrink-0 shadow-[0_0_6px_rgba(225,29,72,0.6)]" />
                           <span className="leading-relaxed">{item}</span>
                         </div>
                       ))}
@@ -252,7 +249,7 @@ export default function Projects() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="font-mono rounded-lg bg-cyber-card/80 border border-cyber-border px-3 py-1 text-[11px] text-cyber-muted hover:text-neon-cyan hover:border-neon-cyan/40 transition-colors"
+                          className="font-mono-code rounded-xl bg-[#fdf2f8] border border-[#2b1810]/10 px-3 py-1 text-[11px] text-[#2b1810] font-semibold hover:border-[#e11d48]/40 transition-colors"
                         >
                           {tag}
                         </span>
@@ -260,13 +257,13 @@ export default function Projects() {
                     </div>
 
                     {/* ACTION LINKS */}
-                    <div className="mt-8 flex flex-wrap items-center gap-4 pt-6 border-t border-cyber-border/60 font-mono text-xs">
+                    <div className="mt-8 flex flex-wrap items-center gap-4 pt-6 border-t border-[#2b1810]/10 font-mono-code text-xs">
                       {project.liveUrl && project.liveUrl !== "#" && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-fanta to-neon-rose px-5 py-3 font-bold uppercase tracking-wider text-cyber-black transition-all hover:shadow-[0_0_25px_rgba(255,45,117,0.6)] hover:scale-[1.02]"
+                          className="inline-flex items-center gap-2 rounded-xl bg-[#2b1810] px-5 py-3 font-bold uppercase tracking-wider text-[#fce7f3] transition-all hover:bg-[#e11d48] hover:text-white hover:scale-[1.02] shadow-md"
                         >
                           <span>Live Demo Portal</span>
                           <ExternalLink className="h-3.5 w-3.5" />
@@ -278,7 +275,7 @@ export default function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl border border-cyber-border bg-cyber-card/80 px-5 py-3 font-bold uppercase tracking-wider text-white transition-all hover:border-fanta/60 hover:bg-cyber-panel hover:text-fanta"
+                          className="inline-flex items-center gap-2 rounded-xl border border-[#2b1810]/20 bg-white px-5 py-3 font-bold uppercase tracking-wider text-[#2b1810] transition-all hover:bg-[#2b1810] hover:text-[#fce7f3]"
                         >
                           <Github className="h-4 w-4" />
                           <span>Code Repository</span>
@@ -287,12 +284,12 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* RIGHT: FUTURISTIC SCREENSHOT VIEWER */}
+                  {/* RIGHT: SCREENSHOT VIEWER */}
                   <div className="relative">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-cyber-black/80 border border-cyber-border p-3 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-white border border-[#2b1810]/15 p-2.5 shadow-xl">
                       {/* VIEWPORT HUD OVERLAY */}
-                      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-2.5 py-1 rounded-md bg-cyber-black/80 border border-cyber-border/80 font-mono text-[10px] text-neon-cyan backdrop-blur-md">
-                        <Radio className="h-3 w-3 animate-pulse text-neon-cyan" />
+                      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 border border-[#2b1810]/15 font-mono-code text-[10px] font-bold text-[#2b1810] backdrop-blur-md shadow-xs">
+                        <Radio className="h-3 w-3 animate-pulse text-[#e11d48]" />
                         <span>VIEWPORT: LIVE_PREVIEW</span>
                       </div>
 
@@ -309,8 +306,8 @@ export default function Projects() {
                           fill
                           className="object-cover transition-transform duration-500 group-hover/img:scale-105"
                         />
-                        <div className="absolute inset-0 bg-cyber-black/20 group-hover/img:bg-transparent transition-colors flex items-center justify-center opacity-0 group-hover/img:opacity-100">
-                          <div className="p-3 rounded-full bg-cyber-black/80 border border-fanta text-fanta backdrop-blur-md">
+                        <div className="absolute inset-0 bg-black/10 group-hover/img:bg-transparent transition-colors flex items-center justify-center opacity-0 group-hover/img:opacity-100">
+                          <div className="p-3 rounded-full bg-white/90 border border-[#e11d48] text-[#e11d48] shadow-lg">
                             <Eye className="h-5 w-5" />
                           </div>
                         </div>
@@ -321,7 +318,7 @@ export default function Projects() {
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.3 }}
-                          className="absolute -bottom-4 -right-4 w-[58%] aspect-[16/10] overflow-hidden rounded-xl border-2 border-cyber-border bg-cyber-black shadow-[0_10px_30px_rgba(0,0,0,0.8)] cursor-pointer group/img2"
+                          className="absolute -bottom-4 -right-4 w-[58%] aspect-[16/10] overflow-hidden rounded-xl border-4 border-white bg-white shadow-2xl cursor-pointer group/img2"
                           onClick={() => setSelectedImage(project.images[1])}
                         >
                           <Image
@@ -330,7 +327,6 @@ export default function Projects() {
                             fill
                             className="object-cover transition-transform duration-500 group-hover/img2:scale-105"
                           />
-                          <div className="absolute inset-0 bg-cyber-black/20 group-hover/img2:bg-transparent transition-colors" />
                         </motion.div>
                       )}
                     </div>
@@ -352,9 +348,9 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 bg-cyber-black/95 backdrop-blur-2xl p-4 sm:p-10 flex items-center justify-center cursor-zoom-out"
+            className="fixed inset-0 z-50 bg-[#2b1810]/80 backdrop-blur-2xl p-4 sm:p-10 flex items-center justify-center cursor-zoom-out"
           >
-            <div className="relative max-w-6xl max-h-[88vh] w-full h-full rounded-2xl overflow-hidden border border-cyber-border shadow-[0_0_60px_rgba(255,45,117,0.3)]">
+            <div className="relative max-w-6xl max-h-[88vh] w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
               <Image
                 src={selectedImage}
                 alt="Enlarged Project Preview"

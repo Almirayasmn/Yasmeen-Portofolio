@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Palette, Database, Users, Cpu, Laptop, CheckCircle, Globe, Terminal, Layers } from "lucide-react";
+import { Code, Palette, Database, Users, Cpu, Globe } from "lucide-react";
 
 const skillCategories = [
   {
@@ -90,27 +90,27 @@ export default function TechStack() {
   return (
     <section
       id="stack"
-      className="relative py-28 md:py-36 text-cyber-text"
+      className="relative py-28 md:py-36 text-[#2b1810]"
     >
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
         
         {/* SECTION HUD HEADER */}
-        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border/60 pb-6">
+        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-[#2b1810]/10 pb-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-fanta"
+            className="flex items-center gap-3 font-mono-code text-xs font-bold uppercase tracking-widest text-[#e11d48]"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fanta opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-fanta"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e11d48] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e11d48]"></span>
             </span>
             <span>// 05_TECHNICAL_ARSENAL_&_MATRIX</span>
           </motion.div>
 
-          <span className="font-mono text-xs uppercase tracking-wider text-cyber-muted">
+          <span className="font-mono-code text-xs uppercase tracking-wider text-[#3a221c]/60 font-semibold">
             SYS_ENV: [ MULTI_DISCIPLINARY ]
           </span>
         </div>
@@ -123,10 +123,10 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
+              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#2b1810] leading-[1.05]"
             >
               The toolchain I use to{" "}
-              <span className="bg-gradient-to-r from-fanta via-neon-rose to-neon-cyan bg-clip-text text-transparent">
+              <span className="text-[#e11d48] italic">
                 build & coordinate.
               </span>
             </motion.h2>
@@ -137,7 +137,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm sm:text-base leading-relaxed text-cyber-muted"
+            className="text-sm sm:text-base leading-relaxed text-[#3a221c]/85 font-medium"
           >
             A curated high-performance stack optimized for rapid UI prototyping, resilient frontend codebases, data verification accuracy, and seamless asynchronous remote teamwork across timezones.
           </motion.p>
@@ -154,22 +154,19 @@ export default function TechStack() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group relative rounded-3xl bg-black/20 border border-white/15 p-6 sm:p-8 backdrop-blur-2xl flex flex-col justify-between hover:border-rose-400/50 hover:bg-black/30 transition-all duration-400 shadow-[0_15px_40px_rgba(0,0,0,0.25)]"
+                className="group relative rounded-3xl bg-white/80 border border-[#2b1810]/15 p-6 sm:p-8 backdrop-blur-2xl flex flex-col justify-between hover:border-[#e11d48]/50 hover:bg-white/95 transition-all duration-300 shadow-[0_15px_35px_rgba(43,24,16,0.05)]"
               >
-                {/* AMBIENT CORNER HIGHLIGHT */}
-                <div className="pointer-events-none absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-rose-500/15 to-transparent rounded-tr-3xl" />
-
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-2xl bg-rose-500/20 text-rose-300 border border-rose-500/30 group-hover:bg-rose-500 group-hover:text-black transition-colors">
+                      <div className="p-3 rounded-2xl bg-[#fdf2f8] text-[#2b1810] border border-[#2b1810]/10 group-hover:bg-[#e11d48] group-hover:text-white transition-colors">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <span className="font-mono text-[10px] text-rose-200 uppercase tracking-wider block">
+                        <span className="font-mono-code text-[10px] text-[#e11d48] font-bold uppercase tracking-wider block">
                           // {cat.code}
                         </span>
-                        <h3 className="font-display text-lg font-bold text-white">
+                        <h3 className="font-display text-lg font-bold text-[#2b1810]">
                           {cat.title}
                         </h3>
                       </div>
@@ -181,7 +178,7 @@ export default function TechStack() {
                     {cat.skills.map((skill) => (
                       <span
                         key={skill.name}
-                        className="font-mono text-xs rounded-xl bg-white/10 border border-white/15 px-3 py-1.5 text-white hover:border-rose-400/50 hover:bg-rose-500/20 transition-all"
+                        className="font-mono-code text-xs rounded-xl bg-[#fdf2f8] border border-[#2b1810]/10 px-3 py-1.5 text-[#2b1810] font-semibold hover:border-[#e11d48]/40 hover:bg-[#fce7f3] transition-all"
                       >
                         {skill.name}
                       </span>
@@ -189,9 +186,9 @@ export default function TechStack() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-rose-200/80">
+                <div className="mt-6 pt-4 border-t border-[#2b1810]/10 flex items-center justify-between font-mono-code text-[10px] text-[#3a221c]/70 font-bold">
                   <span>CAPACITY: VERIFIED</span>
-                  <span className="text-rose-300 font-bold">READY ↗</span>
+                  <span className="text-[#e11d48]">READY ↗</span>
                 </div>
               </motion.div>
             );

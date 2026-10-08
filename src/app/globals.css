@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* ============================= */
-/* GLOBAL RESET & FUTURISTIC BASE */
+/* GLOBAL RESET & PASTEL BASE */
 /* ============================= */
 
 * {
@@ -14,26 +14,24 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
-  background-color: #07060b;
+  background-color: #fdf2f8;
 }
 
 body {
   margin: 0;
-  background-color: #07060b;
-  color: #f8fafc;
+  background-color: #fdf2f8;
+  color: #2b1810;
   font-family: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  selection-background-color: #f43f5e;
 }
 
 ::selection {
-  background: #f43f5e;
-  color: #ffffff;
+  background: #2b1810;
+  color: #fce7f3;
 }
 
 /* ============================= */
-/* FUTURISTIC TYPOGRAPHY */
+/* TYPOGRAPHY */
 /* ============================= */
 
 .font-display {
@@ -45,71 +43,48 @@ body {
 }
 
 /* ============================= */
-/* CYBER BACKGROUND & AMBIENT GRID */
+/* PASTEL CONTINUOUS MESH & GRID */
 /* ============================= */
 
-.cyber-grid {
+.pastel-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(to right, rgba(43, 24, 16, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(43, 24, 16, 0.04) 1px, transparent 1px);
+  background-size: 55px 55px;
 }
 
-.cyber-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
+.pastel-dots {
+  background-image: radial-gradient(rgba(43, 24, 16, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* ============================= */
-/* GLASSMORPHISM & NEON GLOW */
+/* GLASSMORPHISM CARDS */
 /* ============================= */
 
-.glass-panel {
-  background: rgba(255, 255, 255, 0.025);
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(43, 24, 16, 0.12);
+  box-shadow: 0 15px 35px 0 rgba(43, 24, 16, 0.05);
 }
 
-.glass-panel-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-panel-hover:hover {
-  background: rgba(255, 255, 255, 0.045);
-  border-color: rgba(251, 113, 133, 0.35);
-  box-shadow: 0 0 35px -5px rgba(251, 113, 133, 0.15);
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(225, 29, 72, 0.45);
+  box-shadow: 0 20px 45px -5px rgba(225, 29, 72, 0.14);
+  transform: translateY(-4px);
 }
 
-.text-gradient-neon {
-  background: linear-gradient(135deg, #ffffff 0%, #fda4af 50%, #fb7185 100%);
+.text-gradient-fanta {
+  background: linear-gradient(135deg, #e11d48 0%, #fb7185 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-purple {
-  background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 50%, #c084fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ============================= */
-/* NOISE OVERLAY */
-/* ============================= */
-
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.022;
-  z-index: 999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* ============================= */
@@ -117,20 +92,20 @@ body {
 /* ============================= */
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #07060b;
+  background: #fdf2f8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(251, 113, 133, 0.3);
+  background: rgba(43, 24, 16, 0.25);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(251, 113, 133, 0.6);
+  background: rgba(225, 29, 72, 0.6);
 }
 
 a {

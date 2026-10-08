@@ -26,10 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className="antialiased selection:bg-fanta selection:text-cyber-black bg-cyber-black text-cyber-text font-sans relative overflow-x-hidden"
+        className="antialiased selection:bg-[#2b1810] selection:text-[#fce7f3] bg-[#fdf2f8] text-[#2b1810] font-sans relative overflow-x-hidden"
         suppressHydrationWarning
       >
-        <div className="noise-overlay" aria-hidden="true" />
         {children}
       </body>
     </html>

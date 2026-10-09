@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ExternalLink, Github, Terminal, Cpu, Radio, Eye } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github, Terminal, Cpu, Radio, Eye, X } from "lucide-react";
 
 type ProjectCategory = "All" | "Fullstack & AI" | "UI/UX & Product";
 
@@ -80,9 +80,9 @@ const projectData: Project[] = [
     liveUrl: "https://gagasan.tik.pnj.ac.id/",
     githubUrl: "https://github.com/Almirayasmn",
     telemetry: [
-      { label: "PLATFORM", value: "gagasan.tik.pnj.ac.id" },
-      { label: "DESIGN", value: "Figma Component Library" },
-      { label: "DEPLOYMENT", value: "Production Campus Server" },
+      { label: "METHOD", value: "Atomic Design Tokens" },
+      { label: "ROLE", value: "UI/UX Lead & Frontend" },
+      { label: "AUDIENCE", value: "Department-Wide" },
     ],
   },
 ];
@@ -101,63 +101,63 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-28 md:py-36 text-white"
+      className="relative py-20 sm:py-28 md:py-36 text-white overflow-hidden"
     >
-      <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
+      <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-8 md:px-12">
         
         {/* SECTION HUD HEADER */}
-        <div className="mb-16 flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-6">
+        <div className="mb-10 sm:mb-16 flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-b border-white/15 pb-4 sm:pb-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono-code text-xs font-bold uppercase tracking-widest text-[#fda4af]"
+            className="flex items-center gap-2.5 sm:gap-3 font-mono-code text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#fda4af]"
           >
-            <span className="relative flex h-2.5 w-2.5">
+            <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fb7185] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#fb7185]"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#fb7185]"></span>
             </span>
-            <span>// 04_SELECTED_PROJECTS_&_SYSTEMS</span>
+            <span>// 04_SELECTED_PROJECTS</span>
           </motion.div>
 
-          <div className="flex items-center gap-4 font-mono-code text-xs text-white/70 font-semibold">
+          <div className="flex items-center gap-3 font-mono-code text-[11px] sm:text-xs text-white/70 font-semibold">
             <span className="flex items-center gap-1.5">
               <Terminal className="h-3.5 w-3.5 text-[#fb7185]" />
-              <span>FILTER: {activeCategory.toUpperCase()}</span>
+              <span>{activeCategory.toUpperCase()}</span>
             </span>
             <span className="hidden sm:inline text-white/20">|</span>
-            <span className="hidden sm:inline">{projectData.length} CURATED_MODULES</span>
+            <span className="hidden sm:inline">{projectData.length} MODULES</span>
           </div>
         </div>
 
         {/* SECTION TITLE & TABS */}
-        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end mb-16">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1fr_auto] lg:items-end mb-12 sm:mb-16">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]"
             >
               Architected systems &{" "}
               <span className="text-[#fda4af] italic">
                 production builds.
               </span>
             </motion.h2>
-            <p className="mt-4 text-sm sm:text-base text-white/85 max-w-2xl leading-relaxed font-normal">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-base text-white/85 max-w-2xl leading-relaxed font-normal">
               From IoT machine-learning predictive pipelines to deployed university innovation platforms — engineered with precision, high performance, and meticulous user experience.
             </p>
           </div>
 
           {/* FILTER TABS */}
-          <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-black/25 border border-white/20 backdrop-blur-xl">
+          <div className="flex flex-wrap gap-1.5 p-1 rounded-2xl bg-black/25 border border-white/20 backdrop-blur-xl self-start lg:self-end">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-mono-code text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all duration-300 font-bold ${
+                className={`font-mono-code text-[11px] sm:text-xs uppercase tracking-wider px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl transition-all duration-300 font-bold ${
                   activeCategory === cat
                     ? "bg-[#fda4af] text-[#25120f] shadow-md font-extrabold"
                     : "text-white/75 hover:text-white hover:bg-white/10"
@@ -170,46 +170,46 @@ export default function Projects() {
         </div>
 
         {/* PROJECTS SHOWCASE CARDS */}
-        <div className="space-y-16 lg:space-y-24">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-24">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.article
                 key={project.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group relative rounded-3xl bg-black/25 border border-white/20 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.35)] hover:border-[#fb7185]/60 hover:bg-black/35 transition-all duration-500"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                className="group relative rounded-3xl bg-black/25 border border-white/20 backdrop-blur-2xl p-4 sm:p-8 lg:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.35)] hover:border-[#fb7185]/60 hover:bg-black/35 transition-all duration-500 overflow-hidden"
               >
                 {/* CORNER ACCENT BRACKETS */}
-                <div className="pointer-events-none absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#fb7185]/50 rounded-tl-3xl" />
-                <div className="pointer-events-none absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#fda4af]/50 rounded-tr-3xl" />
-                <div className="pointer-events-none absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#fda4af]/50 rounded-bl-3xl" />
-                <div className="pointer-events-none absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#fb7185]/50 rounded-br-3xl" />
+                <div className="pointer-events-none absolute top-0 left-0 w-6 sm:w-8 h-6 sm:h-8 border-t-2 border-l-2 border-[#fb7185]/50 rounded-tl-3xl" />
+                <div className="pointer-events-none absolute top-0 right-0 w-6 sm:w-8 h-6 sm:h-8 border-t-2 border-r-2 border-[#fda4af]/50 rounded-tr-3xl" />
+                <div className="pointer-events-none absolute bottom-0 left-0 w-6 sm:w-8 h-6 sm:h-8 border-b-2 border-l-2 border-[#fda4af]/50 rounded-bl-3xl" />
+                <div className="pointer-events-none absolute bottom-0 right-0 w-6 sm:w-8 h-6 sm:h-8 border-b-2 border-r-2 border-[#fb7185]/50 rounded-br-3xl" />
 
                 {/* PROJECT TOP TELEMETRY BAR */}
-                <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-6 mb-8 font-mono-code text-xs">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#fb7185]/20 border border-[#fb7185]/30 text-[#fda4af] font-bold tracking-wider">
+                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-4 sm:pb-6 mb-6 sm:mb-8 font-mono-code text-xs">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <span className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md bg-[#fb7185]/20 border border-[#fb7185]/30 text-[#fda4af] font-bold tracking-wider text-[11px] sm:text-xs">
                       <Cpu className="h-3.5 w-3.5" />
                       <span>{project.sysId}</span>
                     </span>
-                    <span className="px-3 py-1 rounded-md bg-white/10 border border-white/15 text-white uppercase text-[11px] font-bold tracking-wider">
+                    <span className="px-2.5 sm:px-3 py-1 rounded-md bg-white/10 border border-white/15 text-white uppercase text-[10px] sm:text-[11px] font-bold tracking-wider">
                       {project.categoryLabel}
                     </span>
                   </div>
 
-                  <span className="text-white/70 font-semibold">
+                  <span className="text-white/70 font-semibold text-[11px] sm:text-xs">
                     TIMELINE: <strong className="text-white">{project.year}</strong>
                   </span>
                 </div>
 
                 {/* PROJECT CONTENT GRID */}
-                <div className="relative z-10 grid lg:grid-cols-[1.1fr_1.2fr] gap-10 lg:gap-14 items-center">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1.1fr_1.2fr] gap-8 lg:gap-14 items-center">
                   
-                  {/* LEFT: SPECS & HIGHLIGHTS */}
+                  {/* SPECS & HIGHLIGHTS */}
                   <div>
-                    <h3 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+                    <h3 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05]">
                       {project.title}
                     </h3>
                     
@@ -217,39 +217,39 @@ export default function Projects() {
                       {project.tagline}
                     </p>
 
-                    <p className="mt-5 text-sm text-white/85 leading-relaxed font-normal">
+                    <p className="mt-3.5 sm:mt-5 text-xs sm:text-sm text-white/85 leading-relaxed font-normal">
                       {project.description}
                     </p>
 
-                    {/* TELEMETRY METRICS TABLE */}
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 rounded-2xl bg-black/20 border border-white/10 font-mono-code text-[11px]">
+                    {/* TELEMETRY METRICS TABLE (2-Col on mobile, 3-Col on sm+) */}
+                    <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-3 gap-2 p-2.5 sm:p-3 rounded-2xl bg-black/20 border border-white/10 font-mono-code text-[11px]">
                       {project.telemetry.map((item) => (
-                        <div key={item.label} className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <div key={item.label} className="p-2 sm:p-2.5 rounded-xl bg-white/5 border border-white/10">
                           <span className="block text-white/60 text-[10px] font-bold tracking-wider">{item.label}</span>
-                          <span className="font-bold text-white mt-0.5 block truncate">{item.value}</span>
+                          <span className="font-bold text-white mt-0.5 block truncate text-[11px] sm:text-xs">{item.value}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* HIGHLIGHTS */}
-                    <div className="mt-6 space-y-2.5">
-                      <p className="font-mono-code text-[11px] font-bold uppercase tracking-widest text-[#fda4af]">
+                    <div className="mt-5 sm:mt-6 space-y-2">
+                      <p className="font-mono-code text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-[#fda4af]">
                         // Key Engineering Milestones
                       </p>
                       {project.highlights.map((item) => (
-                        <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/90 font-normal">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#fb7185] mt-2 shrink-0 shadow-[0_0_6px_rgba(251,113,133,0.8)]" />
+                        <div key={item} className="flex items-start gap-2 text-xs sm:text-sm text-white/90 font-normal">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#fb7185] mt-1.5 shrink-0 shadow-[0_0_6px_rgba(251,113,133,0.8)]" />
                           <span className="leading-relaxed">{item}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* TECH STACK TAGS */}
-                    <div className="mt-8 flex flex-wrap gap-2">
+                    <div className="mt-6 sm:mt-8 flex flex-wrap gap-1.5 sm:gap-2">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="font-mono-code rounded-xl bg-white/10 border border-white/15 px-3 py-1 text-[11px] text-white font-semibold hover:border-[#fb7185]/50 transition-colors"
+                          className="font-mono-code rounded-xl bg-white/10 border border-white/15 px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] text-white font-semibold hover:border-[#fb7185]/50 transition-colors"
                         >
                           {tag}
                         </span>
@@ -257,13 +257,13 @@ export default function Projects() {
                     </div>
 
                     {/* ACTION LINKS */}
-                    <div className="mt-8 flex flex-wrap items-center gap-4 pt-6 border-t border-white/15 font-mono-code text-xs">
+                    <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-5 sm:pt-6 border-t border-white/15 font-mono-code text-xs">
                       {project.liveUrl && project.liveUrl !== "#" && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#fb7185] to-[#f43f5e] px-5 py-3 font-extrabold uppercase tracking-wider text-[#25120f] transition-all hover:shadow-[0_0_25px_rgba(251,113,133,0.6)] hover:scale-[1.02]"
+                          className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#fb7185] to-[#f43f5e] px-5 py-3 font-extrabold uppercase tracking-wider text-[#25120f] transition-all hover:shadow-[0_0_25px_rgba(251,113,133,0.6)] hover:scale-[1.02] text-center"
                         >
                           <span>Live Demo Portal</span>
                           <ExternalLink className="h-3.5 w-3.5" />
@@ -275,7 +275,7 @@ export default function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/15 px-5 py-3 font-bold uppercase tracking-wider text-white transition-all hover:bg-white hover:text-[#25120f]"
+                          className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/15 px-5 py-3 font-bold uppercase tracking-wider text-white transition-all hover:bg-white hover:text-[#25120f] text-center"
                         >
                           <Github className="h-4 w-4" />
                           <span>Code Repository</span>
@@ -284,13 +284,13 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* RIGHT: SCREENSHOT VIEWER */}
-                  <div className="relative">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-black/40 border border-white/20 p-2.5 shadow-2xl">
+                  {/* SCREENSHOT VIEWER */}
+                  <div className="relative mt-2 lg:mt-0">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-black/40 border border-white/20 p-2 sm:p-2.5 shadow-2xl">
                       {/* VIEWPORT HUD OVERLAY */}
-                      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/80 border border-white/20 font-mono-code text-[10px] font-bold text-white backdrop-blur-md shadow-xs">
-                        <Radio className="h-3 w-3 animate-pulse text-[#fb7185]" />
-                        <span>VIEWPORT: LIVE_PREVIEW</span>
+                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-black/80 border border-white/20 font-mono-code text-[9px] sm:text-[10px] font-bold text-white backdrop-blur-md shadow-xs">
+                        <Radio className="h-2.5 w-2.5 sm:h-3 sm:w-3 animate-pulse text-[#fb7185]" />
+                        <span>LIVE_PREVIEW</span>
                       </div>
 
                       {/* PRIMARY IMAGE */}
@@ -307,18 +307,18 @@ export default function Projects() {
                           className="object-cover transition-transform duration-500 group-hover/img:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover/img:bg-transparent transition-colors flex items-center justify-center opacity-0 group-hover/img:opacity-100">
-                          <div className="p-3 rounded-full bg-black/80 border border-[#fb7185] text-[#fb7185] shadow-lg">
-                            <Eye className="h-5 w-5" />
+                          <div className="p-2.5 sm:p-3 rounded-full bg-black/80 border border-[#fb7185] text-[#fb7185] shadow-lg">
+                            <Eye className="h-4 sm:h-5 w-4 sm:w-5" />
                           </div>
                         </div>
                       </motion.div>
 
-                      {/* SECONDARY FLOATING PREVIEW */}
+                      {/* SECONDARY FLOATING PREVIEW (hidden on xs, shown on sm+) */}
                       {project.images[1] && (
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.3 }}
-                          className="absolute -bottom-4 -right-4 w-[58%] aspect-[16/10] overflow-hidden rounded-xl border-4 border-white/90 bg-[#25120f] shadow-2xl cursor-pointer group/img2"
+                          className="hidden sm:block absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 w-[50%] aspect-[16/10] overflow-hidden rounded-xl border-2 sm:border-4 border-white/90 bg-[#25120f] shadow-2xl cursor-pointer group/img2"
                           onClick={() => setSelectedImage(project.images[1])}
                         >
                           <Image
@@ -348,9 +348,16 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl p-4 sm:p-10 flex items-center justify-center cursor-zoom-out"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl p-3 sm:p-8 flex items-center justify-center cursor-zoom-out"
           >
-            <div className="relative max-w-6xl max-h-[88vh] w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 z-50"
+              aria-label="Close Preview"
+            >
+              <X className="h-6 w-6 text-[#fda4af]" />
+            </button>
+            <div className="relative max-w-6xl max-h-[85vh] w-full h-full rounded-2xl overflow-hidden border-2 sm:border-4 border-white shadow-2xl">
               <Image
                 src={selectedImage}
                 alt="Enlarged Project Preview"

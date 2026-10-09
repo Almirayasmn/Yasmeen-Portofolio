@@ -11,9 +11,6 @@ import {
   MapPin,
   Plus,
   Minus,
-  Briefcase,
-  Layers,
-  ArrowUpRight,
 } from "lucide-react";
 
 interface ExperienceItem {
@@ -98,26 +95,25 @@ const containerVariants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.07,
-      delayChildren: 0.05,
+      staggerChildren: 0.06,
+      delayChildren: 0.04,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 10 },
   show: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4,
+      duration: 0.35,
       ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
 export default function Experience() {
-  // Store expanded card IDs (default: first experience open)
   const [expandedIds, setExpandedIds] = useState<string[]>(["kemendikdasmen-monitoring"]);
 
   const toggleCard = (id: string) => {
@@ -137,33 +133,33 @@ export default function Experience() {
   const allExpanded = expandedIds.length === experiences.length;
 
   return (
-    <section id="experience" className="relative py-28 md:py-36 text-white">
-      <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 md:px-12">
+    <section id="experience" className="relative py-20 sm:py-28 md:py-36 text-white overflow-hidden">
+      <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-8 md:px-12">
         
         {/* HUD SECTION HEADER */}
-        <div className="mb-14 flex items-center justify-between pb-6 border-b border-white/15">
+        <div className="mb-10 sm:mb-14 flex items-center justify-between pb-4 sm:pb-6 border-b border-white/15">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 font-mono-code text-xs font-bold tracking-wider text-[#fda4af]"
+            className="flex items-center gap-2.5 sm:gap-3 font-mono-code text-[11px] sm:text-xs font-bold tracking-wider text-[#fda4af]"
           >
             <span className="h-2 w-2 rounded-full bg-[#fb7185] shadow-[0_0_8px_rgba(251,113,133,0.8)]" />
             <span>[ 02 // PROFESSIONAL TIMELINE ]</span>
           </motion.div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               onClick={allExpanded ? collapseAll : expandAll}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-1 text-xs font-mono-code font-bold tracking-wider text-white transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-mono-code font-bold tracking-wider text-white transition-colors"
             >
               {allExpanded ? (
                 <>
                   <Minus className="h-3 w-3 text-[#fda4af]" />
-                  <span>COLLAPSE ALL</span>
+                  <span>COLLAPSE</span>
                 </>
               ) : (
                 <>
@@ -183,14 +179,14 @@ export default function Experience() {
         </div>
 
         {/* SECTION TITLE */}
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-16">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end mb-12 sm:mb-16">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white"
+              className="font-display text-3xl sm:text-5xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white"
             >
               Proven track record of{" "}
               <span className="text-[#fda4af] italic">execution & impact.</span>
@@ -202,21 +198,21 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-3"
+            className="space-y-2.5 sm:space-y-3"
           >
-            <p className="text-sm sm:text-base leading-relaxed text-white/85 font-normal">
-              Demonstrated experience across government education programs, high-growth Web3 developer ecosystems, and cross-functional teams with high accountability and remote discipline.
+            <p className="text-xs sm:text-base leading-relaxed text-white/85 font-normal">
+              Demonstrated experience across government education programs, high-growth Web3 developer ecosystems, and cross-functional teams with high accountability.
             </p>
-            <p className="text-xs font-mono-code text-[#fda4af] font-semibold flex items-center gap-1.5">
-              <Sparkles className="h-3.5 w-3.5 text-[#fb7185]" />
-              <span>Click on any card to explore full responsibilities & impact.</span>
+            <p className="text-[11px] sm:text-xs font-mono-code text-[#fda4af] font-semibold flex items-center gap-1.5">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#fb7185] shrink-0" />
+              <span>Tap any card to view detailed responsibilities & impact.</span>
             </p>
           </motion.div>
         </div>
 
         {/* EXPERIENCE TIMELINE INTERACTIVE ACCORDION CARDS */}
         <LayoutGroup>
-          <div className="space-y-5">
+          <div className="space-y-4 sm:space-y-5">
             {experiences.map((exp, index) => {
               const isExpanded = expandedIds.includes(exp.id);
 
@@ -224,13 +220,13 @@ export default function Experience() {
                 <motion.article
                   layout
                   key={exp.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 25 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
+                  viewport={{ once: true, margin: "-30px" }}
                   transition={{
                     layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-                    opacity: { duration: 0.5, delay: index * 0.08 },
-                    y: { duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { duration: 0.45, delay: index * 0.08 },
+                    y: { duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] },
                   }}
                   className={`group relative rounded-3xl backdrop-blur-2xl border transition-all duration-300 overflow-hidden ${
                     isExpanded
@@ -252,45 +248,43 @@ export default function Experience() {
                     type="button"
                     onClick={() => toggleCard(exp.id)}
                     aria-expanded={isExpanded}
-                    className="w-full text-left p-6 sm:p-8 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fb7185] rounded-3xl transition-colors"
+                    className="w-full text-left p-4 sm:p-7 md:p-8 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fb7185] rounded-3xl transition-colors"
                   >
                     {/* TOP META ROW */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                      <div className="flex flex-wrap items-center gap-2.5">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono-code font-bold text-[#fda4af] bg-[#fb7185]/20 border border-[#fb7185]/30 px-3.5 py-1 rounded-full">
+                    <div className="flex flex-wrap items-center justify-between gap-2.5 mb-3 sm:mb-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-mono-code font-bold text-[#fda4af] bg-[#fb7185]/20 border border-[#fb7185]/30 px-3 py-0.5 sm:py-1 rounded-full">
                           <Calendar className="h-3 w-3 text-[#fb7185]" />
                           {exp.year}
                         </span>
-                        <span className="text-xs font-mono-code text-white/70 font-semibold">
+                        <span className="text-[10px] sm:text-xs font-mono-code text-white/70 font-semibold">
                           // {exp.period}
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <span className="rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-[11px] font-mono-code uppercase tracking-wider text-white font-bold">
-                          {exp.type}
-                        </span>
-                      </div>
+                      <span className="rounded-full border border-white/20 bg-white/10 px-2.5 sm:px-3 py-0.5 text-[10px] sm:text-[11px] font-mono-code uppercase tracking-wider text-white font-bold">
+                        {exp.type}
+                      </span>
                     </div>
 
                     {/* ROLE & COMPANY ROW WITH TOGGLE INDICATOR */}
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                      <div className="space-y-1.5 max-w-3xl">
-                        <h3 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight group-hover:text-[#fda4af] transition-colors">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                      <div className="space-y-1 max-w-3xl">
+                        <h3 className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-white leading-tight group-hover:text-[#fda4af] transition-colors">
                           {exp.role}
                         </h3>
-                        <div className="flex items-center gap-2 text-xs sm:text-sm font-mono-code font-bold uppercase tracking-wider text-[#fda4af]">
-                          <Building className="h-3.5 w-3.5 shrink-0 text-[#fb7185]" />
-                          <span>{exp.company}</span>
+                        <div className="flex items-center gap-1.5 text-xs sm:text-sm font-mono-code font-bold uppercase tracking-wider text-[#fda4af]">
+                          <Building className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0 text-[#fb7185]" />
+                          <span className="line-clamp-1">{exp.company}</span>
                         </div>
                       </div>
 
                       {/* INTERACTIVE EXPAND BUTTON */}
-                      <div className="shrink-0 pt-2 md:pt-0">
+                      <div className="shrink-0 pt-1 sm:pt-0 self-start sm:self-center">
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-mono-code font-bold tracking-wider transition-all duration-300 ${
+                          className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border text-[11px] sm:text-xs font-mono-code font-bold tracking-wider transition-all duration-300 ${
                             isExpanded
                               ? "bg-[#fb7185] text-[#25120f] border-[#fb7185] shadow-[0_0_16px_rgba(251,113,133,0.5)]"
                               : "bg-white/10 text-white border-white/20 group-hover:border-[#fb7185]/60 group-hover:bg-white/15"
@@ -301,25 +295,25 @@ export default function Experience() {
                             animate={{ rotate: isExpanded ? 180 : 0 }}
                             transition={{ type: "spring", stiffness: 350, damping: 22 }}
                           >
-                            <ChevronDown className="h-4 w-4" />
+                            <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                           </motion.div>
                         </motion.div>
                       </div>
                     </div>
 
-                    {/* SHORT PREVIEW SUMMARY (Visible when collapsed for quick skimming) */}
+                    {/* SHORT PREVIEW SUMMARY */}
                     {!isExpanded && (
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-white/75"
+                        className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-white/75"
                       >
-                        <p className="line-clamp-2 sm:line-clamp-1 font-normal text-white/80">
+                        <p className="line-clamp-2 sm:line-clamp-1 font-normal text-white/80 text-[11px] sm:text-xs">
                           {exp.summary}
                         </p>
-                        <div className="flex items-center gap-1.5 shrink-0 text-[11px] font-mono-code text-white/60">
+                        <div className="flex items-center gap-1.5 shrink-0 text-[10px] sm:text-[11px] font-mono-code text-white/60">
                           <MapPin className="h-3 w-3 text-[#fda4af]" />
                           <span>{exp.location}</span>
                         </div>
@@ -345,33 +339,33 @@ export default function Experience() {
                           variants={containerVariants}
                           initial="hidden"
                           animate="show"
-                          className="p-6 sm:p-8 md:p-10 bg-black/20"
+                          className="p-4 sm:p-7 md:p-10 bg-black/20"
                         >
-                          <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
+                          <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-6 sm:gap-8">
                             
                             {/* LEFT: FULL DESCRIPTION & DETAILED BULLET POINTS */}
-                            <div className="space-y-6">
+                            <div className="space-y-4 sm:space-y-6">
                               <motion.div variants={itemVariants}>
-                                <span className="text-xs font-mono-code uppercase tracking-wider text-[#fda4af] font-bold block mb-2">
+                                <span className="text-[10px] sm:text-xs font-mono-code uppercase tracking-wider text-[#fda4af] font-bold block mb-1.5">
                                   // OVERVIEW & SCOPE
                                 </span>
-                                <p className="text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                <p className="text-xs sm:text-base leading-relaxed text-white/90 font-normal">
                                   {exp.description}
                                 </p>
                               </motion.div>
 
                               <motion.div variants={itemVariants}>
-                                <span className="text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-3">
+                                <span className="text-[10px] sm:text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-2 sm:mb-3">
                                   KEY CONTRIBUTIONS & IMPACT
                                 </span>
-                                <div className="space-y-3">
+                                <div className="space-y-2 sm:space-y-2.5">
                                   {exp.points.map((point) => (
                                     <motion.div
                                       key={point}
                                       variants={itemVariants}
-                                      className="flex items-start gap-3 text-xs sm:text-sm text-white/90 font-normal leading-relaxed bg-white/5 p-3.5 rounded-2xl border border-white/10 hover:border-white/20 transition-colors"
+                                      className="flex items-start gap-2.5 text-xs sm:text-sm text-white/90 font-normal leading-relaxed bg-white/5 p-2.5 sm:p-3.5 rounded-2xl border border-white/10 hover:border-white/20 transition-colors"
                                     >
-                                      <CheckCircle className="h-4 w-4 text-[#fb7185] mt-0.5 shrink-0" />
+                                      <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#fb7185] mt-0.5 shrink-0" />
                                       <span>{point}</span>
                                     </motion.div>
                                   ))}
@@ -382,17 +376,17 @@ export default function Experience() {
                             {/* RIGHT: TOOLS, PROTOCOLS & WORK ENVIRONMENT */}
                             <motion.div
                               variants={itemVariants}
-                              className="lg:border-l lg:border-white/15 lg:pl-8 flex flex-col justify-between space-y-6"
+                              className="lg:border-l lg:border-white/15 lg:pl-8 flex flex-col justify-between space-y-4 sm:space-y-6 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/10"
                             >
                               <div>
-                                <span className="text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-3">
+                                <span className="text-[10px] sm:text-xs font-mono-code uppercase tracking-wider text-white/70 font-bold block mb-2 sm:mb-3">
                                   TOOLS & DOMAIN PROTOCOLS
                                 </span>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                   {exp.skills.map((skill) => (
                                     <span
                                       key={skill}
-                                      className="rounded-xl bg-white/10 border border-white/15 px-3 py-1.5 text-xs font-mono-code text-white font-semibold shadow-xs"
+                                      className="rounded-xl bg-white/10 border border-white/15 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-mono-code text-white font-semibold shadow-xs"
                                     >
                                       {skill}
                                     </span>
@@ -400,13 +394,13 @@ export default function Experience() {
                                 </div>
                               </div>
 
-                              <div className="pt-6 border-t border-white/15 space-y-3">
+                              <div className="pt-4 sm:pt-6 border-t border-white/15 space-y-2.5 sm:space-y-3">
                                 <div>
-                                  <span className="text-xs font-mono-code uppercase tracking-wider text-white/60 font-bold block">
+                                  <span className="text-[10px] sm:text-xs font-mono-code uppercase tracking-wider text-white/60 font-bold block">
                                     LOCATION & WORK MODE
                                   </span>
-                                  <div className="flex items-center gap-2 mt-1.5">
-                                    <MapPin className="h-4 w-4 text-[#fb7185] shrink-0" />
+                                  <div className="flex items-center gap-2 mt-1">
+                                    <MapPin className="h-3.5 w-3.5 text-[#fb7185] shrink-0" />
                                     <p className="text-xs sm:text-sm font-mono-code text-white font-bold">
                                       {exp.location}
                                     </p>
@@ -418,7 +412,7 @@ export default function Experience() {
                                   whileTap={{ scale: 0.98 }}
                                   type="button"
                                   onClick={() => toggleCard(exp.id)}
-                                  className="w-full mt-4 py-2.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-mono-code font-bold text-white/80 hover:text-white transition-all text-center"
+                                  className="w-full mt-2 py-2 sm:py-2.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-[11px] sm:text-xs font-mono-code font-bold text-white/80 hover:text-white transition-all text-center"
                                 >
                                   ↑ Close Details
                                 </motion.button>
